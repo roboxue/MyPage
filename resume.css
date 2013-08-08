@@ -1,0 +1,185 @@
+body {
+    width: 612pt;
+    height: 792pt;
+    margin: 0pt;
+    font-family: "Segoe UI", sans-serif;
+    font-size: 12pt;
+    overflow: hidden;
+}
+
+header, section, article, footer {
+    padding: 0;
+    margin: 0pt 0pt 0pt 0pt;
+}
+
+p {
+    margin: 0;
+}
+
+/*header*/
+header #name {
+    font-size: 18pt;
+    text-align: center;
+    font-weight: bold;
+}
+
+header #contact {
+    text-align: center;
+}
+
+header #email {
+    margin: 0pt;
+    padding-right: 18pt;
+}
+
+header #phone {
+}
+
+/*section*/
+section {
+    width: 480pt;
+    float: left;
+}
+
+section mark{
+    background-color: white;
+    
+    font-weight: 600;
+}
+
+section#experience {
+    border-top: 1pt groove black;
+
+    border-bottom: 1pt groove black;
+}
+
+p.title {
+    font-size: 15pt;
+    padding-left: 0pt;
+}
+
+section span.major {
+    font-weight: bold;
+    width: 108pt;
+    display: inline-block;
+}
+
+section span.school {
+    display: inline-block;
+    width: 240pt;
+    font-weight: bold;
+}
+
+section span.location {
+}
+
+section span.company {
+    font-weight: bold;
+    width: 108pt;
+    display: inline-block;
+}
+
+section span.position {
+    display: inline-block;
+    width: 240pt;
+    font-weight: bold;
+}
+
+section span.period {
+}
+
+section p.comment {
+    margin-left: 30pt;
+
+    line-height: 1em;
+    font-size: 8pt;
+}
+
+section ul {
+    margin: 3pt 0pt 3pt 0pt;
+}
+
+section li {
+}
+
+/**/
+aside {
+    float: right;
+
+    width: 129pt;
+    border-left: 1pt black groove;
+}
+
+aside ul#skillset {
+    padding-left: 3pt;
+    margin: 0;
+}
+
+aside #skillset li {
+    list-style-type: none;
+
+}
+
+aside ul#facts{
+    padding-left: 15pt;
+
+    font-size: 10pt;
+}
+aside #facts li{
+    
+}
+
+aside p.fact-type {
+    text-align: center;
+}
+
+aside text.conclusion{
+    font-size: 8pt;
+    
+    height: 1em;
+}
+
+.bullet {
+    font: 10px sans-serif;
+    width: 172px;
+    height: 39px;
+}
+
+.bullet .marker {
+    stroke: #000;
+    stroke-width: 2px;
+}
+
+.bullet .tick line {
+    stroke: #666;
+    stroke-width: .5px;
+}
+
+.bullet .range.s0 {
+    fill: #eee;
+}
+
+.bullet .range.s1 {
+    fill: #ddd;
+}
+
+.bullet .range.s2 {
+    fill: #ccc;
+}
+
+.bullet .measure.s0 {
+    fill: lightsteelblue;
+}
+
+.bullet .measure.s1 {
+    fill: steelblue;
+}
+
+.bullet .title {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.bullet .subtitle {
+    fill: #999;
+}
