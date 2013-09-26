@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block head %}
+{{ super() }}
+<!-- Custom styles -->
+<link href="{{ url_for('static', filename='css/about.css') }}" rel="stylesheet">
+{% endblock %}
+{% block content %}
+{% endblock %}
+{% block scripts %}
+<script>
+    $(function () {
+        $("#li_about").addClass("active");
+    });
+</script>
+{% endblock %}

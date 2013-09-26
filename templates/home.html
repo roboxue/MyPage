@@ -6,6 +6,23 @@
 <link href="{{ url_for('static', filename='css/home.css') }}" rel="stylesheet">
 {% endblock %}
 {% block content %}
+<div class="jumbotron">
+    <div class="page-header">
+        <h1>Data Scientist<br/>
+            <small>Chicago&middot;Shanghai</small>
+        </h1>
+    </div>
+
+    <p class="lead">Introduction Introduction Introduction Introduction Introduction Introduction Introduction
+        Introduction Introduction Introduction </p>
+
+    <p><a class="btn btn-lg btn-success" href="#">Know more about me</a></p>
+</div>
 {% endblock %}
-{% block script %}
+{% block scripts %}
+<script>
+    $(function () {
+        $("#li_home").addClass("active");
+    });
+</script>
 {% endblock %}
