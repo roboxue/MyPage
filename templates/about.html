@@ -1,16 +1,110 @@
 {% extends "base.html" %}
-{% block title %}Home{% endblock %}
+{% block title %}
+About Robert
+{% endblock %}
 {% block head %}
 {{ super() }}
 <!-- Custom styles -->
 <link href="{{ url_for('static', filename='css/about.css') }}" rel="stylesheet">
 {% endblock %}
 {% block content %}
+<hr class="featurette-divider">
+<div class="row roboxue-education" id="northwestern">
+    <div class="col-md-3 roboxue-education-logo">
+        <img class="img-responsive" src="data:image/png;base64," data-src="holder.js/200x200/auto"
+             alt="Generic placeholder image">
+    </div>
+    <div class="col-md-9">
+        <div class="page-header">
+            <h1>Northwestern University
+                <span class="pull-right">Evanston, Illinois</span>
+            </h1>
+
+            <h3 class="text-muted">M.S. in <span class="roboxue-education-program">Analytics</span>
+                <span class="pull-right">2012.09 - 2013.12</span>
+            </h3>
+
+            <h1 class="text-right"><span class="glyphicon glyphicon-collapse-down roboxue-education-down"></span></h1>
+
+        </div>
+
+        <div class="list-group" style="display: none;">
+            <span href="#" class="list-group-item">
+                <h3 class="list-group-item-heading">Data Scientist Intern
+                    <span class="pull-right">
+                        <a href="http://www.brokersavant.com" target="_blank">BrokerSavant Inc.</a>
+                    </span>
+                </h3>
+
+                <p class="list-group-item-text">Work Description</p>
+                <h5 class="roboxue-tags">
+                    <span class="label roboxue-label-web">Javascript - D3</span>
+                    <span class="label roboxue-label-web">HTML</span>
+                    <span class="label roboxue-label-web">CSS</span>
+                    <span class="label roboxue-label-programming">Python</span>
+                    <span class="label roboxue-label-programming">Ruby</span>
+                    <span class="label roboxue-label-programming">Bash</span>
+                    <span class="label roboxue-label-database">Postgresql</span>
+                    <span class="label roboxue-label-database">Mongodb</span>
+                    <span class="label roboxue-label-analytics">PostGis</span>
+                    <span class="label roboxue-label-algorithm">Algorithm</span>
+                    <span class="label roboxue-label-research">Location Based Study</span>
+                </h5>
+            </span>
+            <br>
+        </div>
+    </div>
+</div>
+<div class="row roboxue-education" id="fudan">
+    <div class="col-md-3 roboxue-education-logo">
+        <img class="img-responsive" src="data:image/png;base64," data-src="holder.js/200x200/auto"
+             alt="Generic placeholder image">
+    </div>
+    <div class="col-md-9">
+        <div class="page-header">
+            <h1>Fudan University
+                <span class="pull-right">Shanghai, China</span>
+            </h1>
+
+            <h3 class="text-muted">B.A. in <span class="roboxue-education-program">Economice</span>,
+                <span class="roboxue-education-program">Insurance</span> Major
+                <span class="pull-right">2008.09 - 2012.06</span>
+            </h3>
+
+            <h1 class="text-right"><span class="glyphicon glyphicon-collapse-down roboxue-education-down"></span></h1>
+
+        </div>
+
+        <div class="list-group" style="display: none;">
+            <span href="#" class="list-group-item">
+                <h3 class="list-group-item-heading">CTO
+                    <span class="pull-right">
+                        <a href="http://www.brokersavant.com" target="_blank">Fudan Student Website</a>
+                    </span>
+                </h3>
+
+                <p class="list-group-item-text">Work Description</p>
+                <h4 class="roboxue-tags">
+                    <span class="label roboxue-label-javascript">Javascript</span>
+                </h4>
+            </span>
+            <br>
+        </div>
+    </div>
+</div>
+<hr class="featurette-divider">
 {% endblock %}
 {% block scripts %}
+<script src="{{ url_for('static', filename='vendor/bootstrap/js/holder.js') }}"></script>
 <script>
     $(function () {
         $("#li_about").addClass("active");
     });
+
+    $(".roboxue-education-down").click(function () {
+        $(this).parents(".col-md-9").children(".list-group").toggle();
+        $(this).toggleClass("glyphicon-collapse-down glyphicon-collapse-up");
+    });
+    $(".roboxue-education-down").click();
 </script>
 {% endblock %}

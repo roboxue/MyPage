@@ -1,0 +1,49 @@
+/* Featurettes
+------------------------- */
+
+.featurette-divider {
+    margin: 80px 0; /* Space out the Bootstrap <hr> more */
+}
+
+/* Roboxue
+------------------------- */
+
+.roboxue-education {
+
+}
+
+.roboxue-experience {
+
+}
+
+.roboxue-education-down {
+
+}
+
+.roboxue-tags{
+    line-height: 1.5;
+}
+
+.roboxue-label-web{
+    background-color: dimgray;
+}
+.roboxue-label-database{
+    background-color: blue;
+}
+.roboxue-label-analytics{
+    background-color: darkgreen;
+}
+.roboxue-label-algorithm{
+    background-color: red;
+}
+.roboxue-label-programming{
+    background-color: gold;
+}
+.roboxue-label-research{
+    background-color: deeppink;
+}
+
+
+.roboxue-education-program {
+    color: crimson;
+}
