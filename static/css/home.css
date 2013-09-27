@@ -1,6 +1,10 @@
 .jumbotron {
     text-align: center;
     border-bottom: 1px solid #e5e5e5;
+    margin-top: 30px;
+}
+
+.roboxue-profile {
 }
 
 .jumbotron .btn {
@@ -8,9 +12,17 @@
     padding: 14px 24px;
 }
 
+.lead .firstword{
+    font-size: 3em;
+    line-height: 1.4;
+    font-weight: bold;
+}
+
+.lead{
+}
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
-  /* Remove the bottom border on the jumbotron for visual effect */
+    /* Remove the bottom border on the jumbotron for visual effect */
     .jumbotron {
         border-bottom: 0;
     }

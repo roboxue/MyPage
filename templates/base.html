@@ -26,15 +26,24 @@
     <div class="header">
         <ul class="nav nav-pills pull-right">
             <li id="li_home"><a href="{{ url_for('home')}}">Home</a></li>
-            <li id="li_about"><a href="{{ url_for('about')}}">About</a></li>
-            <li id="li_contact"><a href="#">Contact</a></li>
+            <li id="li_about" class="dropdown">
+                <a href="{{ url_for('works')}}" class="dropdown-toggle" data-toggle="dropdown">
+                    Works<span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="{{ url_for('works')}}">All Works</a></li>
+                    <li class="divider"></li>
+                    <li><a href="{{ url_for('works', _anchor='northwestern_university')}}">Northwestern University</a></li>
+                    <li><a href="{{ url_for('works', _anchor='fudan_university')}}">Fudan University</a></li>
+                </ul>
+            </li>
         </ul>
-        <h3 class="text-muted">Roboxue &middot; Robert Yan Xue</h3>
+        <h3 class="text-muted">Roboxue</h3>
     </div>
     {% block content %}{% endblock %}
-    <div class="footer">
-        <p>&copy; Roboxue 2013</p>
-    </div>
+    <footer class="footer">
+        &copy; Roboxue 2013
+</div>
 </div>
 <!-- Bootstrap core JavaScript
 ================================================== -->

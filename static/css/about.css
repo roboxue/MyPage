@@ -18,19 +18,20 @@
 }
 
 .roboxue-experience {
-
+    margin-top: 10px;
 }
 
 .roboxue-education-down {
 
 }
 
-.roboxue-tags {
+.roboxue-tags{
     line-height: 1.5;
 }
 
 .roboxue-label{
     margin-right: 2px;
+    display: inline-block;
 }
 
 .roboxue-label-web {

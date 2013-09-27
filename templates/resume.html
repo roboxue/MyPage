@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-43018827-1', 'herokuapp.com');
+	  ga('send', 'pageview');
+
+	</script>
+	<style>
+        @media screen {
+            body {
+                border: 1px black groove;
+                padding: 36pt;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/resume.css') }}">
+    <title>Robert Yan Xue</title>
+</head>
+<body>
+<header>
+    <p id="name">Robert Yan Xue</p>
+
+    <p id="contact">
+        <span id="email">yanxue@u.northwestern.edu</span>
+        <span id="phone">2242414138</span>
+    </p>
+</header>
+<section id="education">
+    <p class="title">Education</p>
+    <article>
+        <p><span class="major">M.S.<br/>Analytics</span>
+            <span class="school">Northwestern University<br/>McCormick School of Engineering</span>
+            <span class="location">Evanston, IL</span></p>
+        <ul>
+            <li>Cumulative GPA 3.87/4.00; GRE Revised Test Quantitative 170/170</li>
+            <li>Coursework: Big Data Analytics, Data Mining, Data Visualization, Predictive Analytics</li>
+        </ul>
+    </article>
+    <article>
+        <p><span class="major">B.A.<br/>Economics</span>
+            <span class="school">Fudan University<br/>School of Economics</span>
+            <span class="location">Shanghai, China</span></p>
+        <ul>
+            <li>Holland Fellowship(12 out of 3000), Outstanding Graduate (1 out of 30)</li>
+            <li>Study abroad for one semester at University College Dublin, Ireland.</li>
+        </ul>
+    </article>
+</section>
+<aside>
+<article>
+<p class="title fact-type">Skills</p>
+<ul id="skillset">
+<li>
+    Python
+    <svg class="bullet">
+        <g transform="translate(6,0)">
+            <rect class="range s0" width="150px" height="15px" x="0"></rect>
+            <rect class="range s1" width="150px" height="15px" x="0"></rect>
+            <rect class="measure s1" width="150px" height="4" x="0" y="4"></rect>
+            <line class="marker" x1="150px" x2="150px" y1="2"
+                  y2="13"></line>
+            <g class="tick" transform="translate(0,0)" style="opacity: 1;">
+                <line y1="15" y2="17"></line>
+                <text text-anchor="middle" dy="1em" y="17">0</text>
+            </g>
+            <g class="tick" transform="translate(150,0)" style="opacity: 1;">
+                <line y1="15" y2="17"></line>
+                <text text-anchor="middle" dy="1em" y="17">10</text>
+            </g>
+            <g class="tick" transform="translate(150,0)" style="opacity: 1;">
+                <line y1="15" y2="17"></line>
+                <text text-anchor="middle" dy="1em" y="17">10</text>
+            </g>
+            <text transform="translate(85,15)" class="conclusion" text-anchor="middle" dy="1em">It means everything
+            </text>
+        </g>
+    </svg>
+</li>
+<li>
+    C#
+    <svg class="bullet">
+        <g transform="translate(6,0)">
+            <rect class="range s0" width="150px" height="15px" x="0"></rect>
+            <rect class="range s1" width="135px" height="15px" x="0"></rect>
+            <rect class="measure s1" width="135px" height="4" x="0" y="4"></rect>
+            <line class="marker" x1="135px" x2="135px" y1="2"
+                  y2="13"></line>
+            <g class="tick" transform="translate(0,0)" style="opacity: 1;">
+                <line y1="15" y2="17"></line>
+                <text text-anchor="middle" dy="1em" y="17">0</text>
+            </g>
+            <g class="tick" transform="translate(135,0)" style="opacity: 1;">
+                <line y1="15" y2="17"></line>
+                <text text-anchor="middle" dy="1em" y="17">9</text>
+            </g>
+            <g class="tick" transform="translate(150,0)" style="opacity: 1;">
+                <line y1="15" y2="17"></line>
+                <text text-anchor="middle" dy="1em" y="17">10</text>
+            </g>
+            <text transform="translate(85,25)" class="conclusion" text-anchor="middle" dy="1em">When I develop on
+                Windows
+            </text>
+        </g>
+    </svg>
+</li>
+<li>
+    Java - hadoop
+    <svg class="bullet">
+        <g transform="translate(6,0)">
+            <rect class="range s0" width="150px" height="15px" x="0"></rect>
+            <rect class="range s1" width="105px" height="15px" x="0"></rect>
+            <rect class="measure s1" width="105px" height="4" x="0" y="4"></rect>
+            <line class="marker" x1="105px" x2="105px" y1="2"
+                  y2="13"></line>
+            <g class="tick" transform="translate(0,0)" style="opacity: 1;">
+                <line y1="15" y2="17"></line>
+                <text text-anchor="middle" dy="1em" y="17">0</text>
+            </g>
+            <g class="tick" transform="translate(105,0)" style="opacity: 1;">
+                <line y1="15" y2="17"></line>
+                <text text-anchor="middle" dy="1em" y="17">7</text>
+            </g>
+            <g class="tick" transform="translate(150,0)" style="opacity: 1;">
+                <line y1="15" y2="17"></line>
+                <text text-anchor="middle" dy="1em" y="17">10</text>
+            </g>
+        </g>
+        <text transform="translate(85,25)" class="conclusion" text-anchor="middle" dy="1em">When python doesn't work
+        </text>
+    </svg>
+</li>
+<li>
+    Bash script - Linux
+    <svg class="bullet">
+        <g transform="translate(6,0)">
+            <rect class="range s0" width="150px" height="15px" x="0"></rect>
+            <rect class="range s1" width="120px" height="15px" x="0"></rect>
+            <rect class="measure s1" width="120px" height="4" x="0" y="4"></rect>
+            <line class="marker" x1="120px" x2="120px" y1="2"
+                  y2="13"></line>
+            <g class="tick" transform="translate(0,0)" style="opacity: 1;">
+                <line y1="15" y2="17"></line>
+                <text text-anchor="middle" dy="1em" y="17">0</text>
+            </g>
+            <g class="tick" transform="translate(120,0)" style="opacity: 1;">
+                <line y1="15" y2="17"></line>
+                <text text-anchor="middle" dy="1em" y="17">8</text>
+            </g>
+            <g class="tick" transform="translate(150,0)" style="opacity: 1;">
+                <line y1="15" y2="17"></line>
+                <text text-anchor="middle" dy="1em" y="17">10</text>
+            </g>
+        </g>
+        <text transform="translate(85,25)" class="conclusion" text-anchor="middle" dy="1em">One-liner program
+            encyclopedia
+        </text>
+    </svg>
+</li>
+<li>
+    Ruby
+    <svg class="bullet">
+        <g transform="translate(6,0)">
+            <rect class="range s0" width="150px" height="15px" x="0"></rect>
+            <rect class="range s1" width="45px" height="15px" x="0"></rect>
+            <rect class="measure s1" width="45px" height="4" x="0" y="4"></rect>
+            <line class="marker" x1="45px" x2="45px" y1="2"
+                  y2="13"></line>
+            <g class="tick" transform="translate(0,0)" style="opacity: 1;">
+                <line y1="15" y2="17"></line>
+                <text text-anchor="middle" dy="1em" y="17">0</text>
+            </g>
+            <g class="tick" transform="translate(45,0)" style="opacity: 1;">
+                <line y1="15" y2="17"></line>
+                <text text-anchor="middle" dy="1em" y="17">3</text>
+            </g>
+            <g class="tick" transform="translate(150,0)" style="opacity: 1;">
+                <line y1="15" y2="17"></line>
+                <text text-anchor="middle" dy="1em" y="17">10</text>
+            </g>
+        </g>
+        <text transform="translate(85,25)" class="conclusion" text-anchor="middle" dy="1em">For automated testing only
+        </text>
+
+    </svg>
+</li>
+<li>
+    Javascript - jQuery
+    <svg class="bullet">
+        <g transform="translate(6,0)">
+            <rect class="range s0" width="150px" height="15px" x="0"></rect>
+            <rect class="range s1" width="105px" height="15px" x="0"></rect>
+            <rect class="measure s1" width="105px" height="4" x="0" y="4"></rect>
+            <line class="marker" x1="105px" x2="105px" y1="2"
+                  y2="13"></line>
+            <g class="tick" transform="translate(0,0)" style="opacity: 1;">
+                <line y1="15" y2="17"></line>
+                <text text-anchor="middle" dy="1em" y="17">0</text>
+            </g>
+            <g class="tick" transform="translate(105,0)" style="opacity: 1;">
+                <line y1="15" y2="17"></line>
+                <text text-anchor="middle" dy="1em" y="17">7</text>
+            </g>
+            <g class="tick" transform="translate(150,0)" style="opacity: 1;">
+                <line y1="15" y2="17"></line>
+                <text text-anchor="middle" dy="1em" y="17">10</text>
+            </g>
+        </g>
+        <text transform="translate(85,25)" class="conclusion" text-anchor="middle" dy="1em">Won a hackathon using this
+        </text>
+
+    </svg>
+</li>
+<li>
+    Javascript - d3
+    <svg class="bullet">
+        <g transform="translate(6,0)">
+            <rect class="range s0" width="150px" height="15px" x="0"></rect>
+            <rect class="range s1" width="120px" height="15px" x="0"></rect>
+            <rect class="measure s1" width="120px" height="4" x="0" y="4"></rect>
+            <line class="marker" x1="120px" x2="120px" y1="2"
+                  y2="13"></line>
+            <g class="tick" transform="translate(0,0)" style="opacity: 1;">
+                <line y1="15" y2="17"></line>
+                <text text-anchor="middle" dy="1em" y="17">0</text>
+            </g>
+            <g class="tick" transform="translate(120,0)" style="opacity: 1;">
+                <line y1="15" y2="17"></line>
+                <text text-anchor="middle" dy="1em" y="17">8</text>
+            </g>
+            <g class="tick" transform="translate(150,0)" style="opacity: 1;">
+                <line y1="15" y2="17"></line>
+                <text text-anchor="middle" dy="1em" y="17">10</text>
+            </g>
+        </g>
+        <text transform="translate(85,25)" class="conclusion" text-anchor="middle" dy="1em">My favorite library
+        </text>
+
+    </svg>
+</li>
+<li>
+    HTML / CSS
+    <svg class="bullet">
+        <g transform="translate(6,0)">
+            <rect class="range s0" width="150px" height="15px" x="0"></rect>
+            <rect class="range s1" width="135px" height="15px" x="0"></rect>
+            <rect class="measure s1" width="135px" height="4" x="0" y="4"></rect>
+            <line class="marker" x1="135px" x2="135px" y1="2"
+                  y2="13"></line>
+            <g class="tick" transform="translate(0,0)" style="opacity: 1;">
+                <line y1="15" y2="17"></line>
+                <text text-anchor="middle" dy="1em" y="17">0</text>
+            </g>
+            <g class="tick" transform="translate(135,0)" style="opacity: 1;">
+                <line y1="15" y2="17"></line>
+                <text text-anchor="middle" dy="1em" y="17">9</text>
+            </g>
+            <g class="tick" transform="translate(150,0)" style="opacity: 1;">
+                <line y1="15" y2="17"></line>
+                <text text-anchor="middle" dy="1em" y="17">10</text>
+            </g>
+        </g>
+        <text transform="translate(85,25)" class="conclusion" text-anchor="middle" dy="1em">This is the way I write my
+            resume
+        </text>
+
+    </svg>
+</li>
+<li>
+    R / SAS
+    <svg class="bullet">
+        <g transform="translate(6,0)">
+            <rect class="range s0" width="150px" height="15px" x="0"></rect>
+            <rect class="range s1" width="90px" height="15px" x="0"></rect>
+            <rect class="measure s1" width="90px" height="4" x="0" y="4"></rect>
+            <line class="marker" x1="90px" x2="90px" y1="2"
+                  y2="13"></line>
+            <g class="tick" transform="translate(0,0)" style="opacity: 1;">
+                <line y1="15" y2="17"></line>
+                <text text-anchor="middle" dy="1em" y="17">0</text>
+            </g>
+            <g class="tick" transform="translate(90,0)" style="opacity: 1;">
+                <line y1="15" y2="17"></line>
+                <text text-anchor="middle" dy="1em" y="17">6</text>
+            </g>
+            <g class="tick" transform="translate(150,0)" style="opacity: 1;">
+                <line y1="15" y2="17"></line>
+                <text text-anchor="middle" dy="1em" y="17">10</text>
+            </g>
+        </g>
+        <text transform="translate(85,25)" class="conclusion" text-anchor="middle" dy="1em">Library++, Grammar--
+        </text>
+
+    </svg>
+</li>
+<li>
+    SQL / Non-SQL
+    <svg class="bullet">
+        <g transform="translate(6,0)">
+            <rect class="range s0" width="150px" height="15px" x="0"></rect>
+            <rect class="range s1" width="150px" height="15px" x="0"></rect>
+            <rect class="measure s1" width="150px" height="4" x="0" y="4"></rect>
+            <line class="marker" x1="150px" x2="150px" y1="2"
+                  y2="13"></line>
+            <g class="tick" transform="translate(0,0)" style="opacity: 1;">
+                <line y1="15" y2="17"></line>
+                <text text-anchor="middle" dy="1em" y="17">0</text>
+            </g>
+            <g class="tick" transform="translate(150,0)" style="opacity: 1;">
+                <line y1="15" y2="17"></line>
+                <text text-anchor="middle" dy="1em" y="17">10</text>
+            </g>
+            <g class="tick" transform="translate(150,0)" style="opacity: 1;">
+                <line y1="15" y2="17"></line>
+                <text text-anchor="middle" dy="1em" y="17">10</text>
+            </g>
+        </g>
+        <text transform="translate(85,25)" class="conclusion" text-anchor="middle" dy="1em">Specialized in query
+            optimization
+        </text>
+
+    </svg>
+</li>
+</ul>
+</article>
+<article>
+    <p class="title fact-type">Facts</p>
+    <ul id="facts">
+        <li>Certified Software Engineer</li>
+        <li>SAS Base Programmer</li>
+        <li>Passed 3 actuary exams</li>
+        <li>Won IMO hackathon in 2012, with an online game written in 22 hours</li>
+        <li>Lego Mindstorms&trade; robots lover, won a robot soccer cup in 2005</li>
+        <li>Have visited 21 countries</li>
+        <li>Sleep 6.5hr per day</li>
+        <li>Walk 6700 steps per day</li>
+        <li>28% of my expenditure is spent on food</li>
+    </ul>
+</article>
+
+</aside>
+<section id="experience">
+    <p class="title">Experience</p>
+    <article>
+        <p><span class="company">BrokerSavant Inc</span>
+            <span class="position">Data Scientist Intern</span>
+            <span class="period">2013.6 - 2013.9</span></p>
+
+        <p class="comment">**A Chicago based startup, builds tools to help commercial real estate brokers.</p>
+        <ul>
+            <li>
+                Knitted several big social and economical data sets to provide automated
+                <mark>location based</mark>
+                demographic and
+                economic reports to commercial real estate brokers, economic developers and chambers of commerce
+            </li>
+            <li>
+                Developed a
+                <mark>web analytics dashboard</mark>
+                for users to locate the potential customers
+            </li>
+            <li>
+                Built quality assurance tools to perform
+                <mark>automated tests</mark>
+                on our products and services
+            </li>
+        </ul>
+    </article>
+    <article>
+        <p><span class="company">TransUnion LLC</span>
+            <span class="position">Practicum Project</span>
+            <span class="period">2012.9 - 2013.5</span></p>
+        <ul>
+            <li>
+                Developed a
+                <mark>visualization tool</mark>
+                using Tableau and SAS, giving user the ability to view the key metrics of
+                their
+                <mark>Terabyte</mark>
+                level credit data from 5 dimensions, and compare theirs with market average
+            </li>
+            <li>
+                As the technical lead of the team, designed the backend data
+                <mark>extract-transform-load</mark>
+                process and the
+                structure of the visualization tool
+            </li>
+            <li>
+                <mark>Optimize</mark>
+                the tool's performance using data warehousing technique: improved the response time from 39
+                seconds to 1 second
+            </li>
+        </ul>
+    </article>
+    <article>
+        <p><span class="company">Rite Aid Pharmacy</span>
+            <span class="position">Data Mining Course Project</span>
+            <span class="period">2013.1 - 2013.3</span></p>
+        <ul>
+            <li>
+                Analyzed Rite Aid's transaction data and performed
+                <mark>cluster analysis, principle component analysis and
+                    association rule analysis
+                </mark>
+            </li>
+            <li>
+                Built
+                <mark>customer lifetime value</mark>
+                model to predict the impacts of a series of marketing strategies and make
+                recommendations to the company
+            </li>
+        </ul>
+    </article>
+</section>
+<section id="leadership">
+    <p class="title">Leadership</p>
+    <article>
+        <p><span class="company">Stu.fudan.edu.cn</span>
+            <span class="position">CTO</span>
+            <span class="period">2008.10 - 2011.9</span></p>
+
+        <p class="comment">**The largest student network media in Fudan University</p>
+        <ul>
+            <li>
+                Designed and implemented the newer version homepage and other two new sub sites that gained a 90% boost
+                in daily unique IP visiting our site
+            </li>
+            <li>
+                Lead a development team of 8 and trained 15 new members in three years, successfully retained the
+                technical department’s functionality under 60% annual turnover rate
+            </li>
+        </ul>
+    </article>
+    <article>
+        <p><span class="company">Holland Fellows</span>
+            <span class="position">Research project leader</span>
+            <span class="period">2011.11 - 2012.5</span></p>
+        <ul>
+            <li>
+                Lead a team of 8, conducted a cross-nation comparative analysis of the enablers and disablers of
+                Corporate Social Responsibility (CSR)
+            </li>
+            <li>
+                Presented in Shanghai Forum, an international economic forum hosted by Fudan University.
+                The report is archived by American Chamber of Commerce in Shanghai
+            </li>
+        </ul>
+    </article>
+</section>
+
+</body>
+</html>

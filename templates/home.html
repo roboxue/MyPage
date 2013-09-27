@@ -7,16 +7,29 @@
 {% endblock %}
 {% block content %}
 <div class="jumbotron">
-    <div class="page-header">
-        <h1>Data Scientist<br/>
-            <small>Chicago&middot;Shanghai</small>
-        </h1>
+    <div class="row">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-3">
+            <img class="roboxue-profile img-responsive" src="{{ url_for('static',filename='images/Roboxue.png')}}"
+                 alt="Roboxue"/>
+        </div>
+        <div class="col-lg-8">
+            <div class="page-header">
+                <h1>Robert Yan Xue<br/>
+                    <small class="text-danger">aka "Roboxue"</small>
+                    <br/>
+                    <small>Chicago &middot; Shanghai</small>
+                </h1>
+            </div>
+
+            <p class="lead">
+                <span class="firstword">Data Scientist</span><br/>
+                Big Data &middot; Data Visualization &middot; Predictive Analytics
+            </p>
+
+            <p><a class="btn btn-lg btn-success" href="{{ url_for('works')}}">My Works</a></p>
+        </div>
     </div>
-
-    <p class="lead">Introduction Introduction Introduction Introduction Introduction Introduction Introduction
-        Introduction Introduction Introduction </p>
-
-    <p><a class="btn btn-lg btn-success" href="{{ url_for('about')}}">Know more about me</a></p>
 </div>
 {% endblock %}
 {% block scripts %}
