@@ -12,6 +12,11 @@
 
 }
 
+.roboxue-education-logo img{
+    width: 200px;
+    height: 200px;
+}
+
 .roboxue-experience {
 
 }
@@ -20,29 +25,37 @@
 
 }
 
-.roboxue-tags{
+.roboxue-tags {
     line-height: 1.5;
 }
 
-.roboxue-label-web{
-    background-color: dimgray;
-}
-.roboxue-label-database{
-    background-color: blue;
-}
-.roboxue-label-analytics{
-    background-color: darkgreen;
-}
-.roboxue-label-algorithm{
-    background-color: red;
-}
-.roboxue-label-programming{
-    background-color: gold;
-}
-.roboxue-label-research{
-    background-color: deeppink;
+.roboxue-label{
+    margin-right: 2px;
 }
 
+.roboxue-label-web {
+    background-color: red;
+}
+
+.roboxue-label-programming {
+    background-color: goldenrod;
+}
+
+.roboxue-label-database {
+    background-color: mediumpurple;
+}
+
+.roboxue-label-analytics {
+    background-color: green;
+}
+
+.roboxue-label-research {
+    background-color: blue;
+}
+
+.roboxue-label-algorithm {
+    background-color: darkcyan;
+}
 
 .roboxue-education-program {
     color: crimson;

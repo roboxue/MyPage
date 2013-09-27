@@ -1,110 +1,205 @@
 {% extends "base.html" %}
 {% block title %}
-About Robert
+    About Robert
 {% endblock %}
 {% block head %}
-{{ super() }}
-<!-- Custom styles -->
-<link href="{{ url_for('static', filename='css/about.css') }}" rel="stylesheet">
+    {{ super() }}
+    <!-- Custom styles -->
+    <link href="{{ url_for('static', filename='css/about.css') }}" rel="stylesheet">
 {% endblock %}
 {% block content %}
-<hr class="featurette-divider">
-<div class="row roboxue-education" id="northwestern">
-    <div class="col-md-3 roboxue-education-logo">
-        <img class="img-responsive" src="data:image/png;base64," data-src="holder.js/200x200/auto"
-             alt="Generic placeholder image">
-    </div>
-    <div class="col-md-9">
-        <div class="page-header">
-            <h1>Northwestern University
-                <span class="pull-right">Evanston, Illinois</span>
-            </h1>
+    <hr class="featurette-divider">
+    <div class="well well-sm" id="filter" style="display: none;">Filters:</div>
+    <div class="list-group" id="everything">
+        <div class="list-group-item">
+            <div class="row roboxue-education">
+                <div class="col-md-3 roboxue-education-logo">
+                    <img class="roboxue-education-logo img-responsive"
+                         src="{{ url_for('static',filename='images/nu-logo-alt.png') }}"
+                         alt="Northwestern University">
+                </div>
+                <div class="col-md-9">
+                    <div class="page-header">
+                        <h1>Northwestern University
+                            <span class="pull-right">Evanston, Illinois</span>
+                        </h1>
 
-            <h3 class="text-muted">M.S. in <span class="roboxue-education-program">Analytics</span>
-                <span class="pull-right">2012.09 - 2013.12</span>
-            </h3>
+                        <h4 class="text-muted">M.S. in <span class="roboxue-education-program">Analytics</span>
+                            <span class="pull-right">2012.09 - 2013.12</span>
+                        </h4>
 
-            <h1 class="text-right"><span class="glyphicon glyphicon-collapse-down roboxue-education-down"></span></h1>
+                        <h1 class="text-right"><span
+                                class="glyphicon glyphicon-collapse-down roboxue-education-down"></span>
+                        </h1>
 
+                    </div>
+
+                    <div class="list-group" id="northwestern" style="display: none;">
+                    </div>
+                </div>
+            </div>
         </div>
+        <div class="list-group-item">
+            <div class="row roboxue-education">
+                <div class="col-md-3 roboxue-education-logo">
+                    <img class="roboxue-education-logo img-responsive"
+                         src="{{ url_for('static',filename='images/fudan.png') }}"
+                         alt="Fudan University">
+                </div>
+                <div class="col-md-9">
+                    <div class="page-header">
+                        <h1>Fudan University
+                            <span class="pull-right">Shanghai, China</span>
+                        </h1>
 
-        <div class="list-group" style="display: none;">
-            <span href="#" class="list-group-item">
-                <h3 class="list-group-item-heading">Data Scientist Intern
-                    <span class="pull-right">
-                        <a href="http://www.brokersavant.com" target="_blank">BrokerSavant Inc.</a>
-                    </span>
-                </h3>
+                        <h4 class="text-muted">B.A. in <span class="roboxue-education-program">Economice</span>,
+                            <span class="roboxue-education-program">Insurance</span> Major
+                            <span class="pull-right">2008.09 - 2012.06</span>
+                        </h4>
 
-                <p class="list-group-item-text">Work Description</p>
-                <h5 class="roboxue-tags">
-                    <span class="label roboxue-label-web">Javascript - D3</span>
-                    <span class="label roboxue-label-web">HTML</span>
-                    <span class="label roboxue-label-web">CSS</span>
-                    <span class="label roboxue-label-programming">Python</span>
-                    <span class="label roboxue-label-programming">Ruby</span>
-                    <span class="label roboxue-label-programming">Bash</span>
-                    <span class="label roboxue-label-database">Postgresql</span>
-                    <span class="label roboxue-label-database">Mongodb</span>
-                    <span class="label roboxue-label-analytics">PostGis</span>
-                    <span class="label roboxue-label-algorithm">Algorithm</span>
-                    <span class="label roboxue-label-research">Location Based Study</span>
-                </h5>
-            </span>
-            <br>
-        </div>
-    </div>
-</div>
-<div class="row roboxue-education" id="fudan">
-    <div class="col-md-3 roboxue-education-logo">
-        <img class="img-responsive" src="data:image/png;base64," data-src="holder.js/200x200/auto"
-             alt="Generic placeholder image">
-    </div>
-    <div class="col-md-9">
-        <div class="page-header">
-            <h1>Fudan University
-                <span class="pull-right">Shanghai, China</span>
-            </h1>
+                        <h1 class="text-right"><span
+                                class="glyphicon glyphicon-collapse-down roboxue-education-down"></span>
+                        </h1>
 
-            <h3 class="text-muted">B.A. in <span class="roboxue-education-program">Economice</span>,
-                <span class="roboxue-education-program">Insurance</span> Major
-                <span class="pull-right">2008.09 - 2012.06</span>
-            </h3>
+                    </div>
 
-            <h1 class="text-right"><span class="glyphicon glyphicon-collapse-down roboxue-education-down"></span></h1>
-
-        </div>
-
-        <div class="list-group" style="display: none;">
-            <span href="#" class="list-group-item">
-                <h3 class="list-group-item-heading">CTO
-                    <span class="pull-right">
-                        <a href="http://www.brokersavant.com" target="_blank">Fudan Student Website</a>
-                    </span>
-                </h3>
-
-                <p class="list-group-item-text">Work Description</p>
-                <h4 class="roboxue-tags">
-                    <span class="label roboxue-label-javascript">Javascript</span>
-                </h4>
-            </span>
-            <br>
+                    <div class="list-group" id="fudan" style="display: none;">
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
-<hr class="featurette-divider">
+    <hr class="featurette-divider">
 {% endblock %}
 {% block scripts %}
-<script src="{{ url_for('static', filename='vendor/bootstrap/js/holder.js') }}"></script>
-<script>
-    $(function () {
-        $("#li_about").addClass("active");
-    });
+    <script src="{{ url_for('static', filename='vendor/bootstrap/js/holder.js') }}"></script>
+    <script>
+        $(function () {
+            $("#li_about").addClass("active");
 
-    $(".roboxue-education-down").click(function () {
-        $(this).parents(".col-md-9").children(".list-group").toggle();
-        $(this).toggleClass("glyphicon-collapse-down glyphicon-collapse-up");
-    });
-    $(".roboxue-education-down").click();
-</script>
+            $(".roboxue-education-down").click(function () {
+                $(this).parents(".col-md-9").children(".list-group").toggle("normal");
+                $(this).toggleClass("glyphicon-collapse-down glyphicon-collapse-up");
+            });
+
+            $(".roboxue-education-down").click();
+
+            $(".roboxue-label").click(function () {
+                var $label = $(this).clone().append("<span class='glyphicon glyphicon-remove'></span>");
+                $label.click(function () {
+                    $(".roboxue-experience").show("blind");
+                    $(".roboxue-education").show("blind");
+                    $("#filter .roboxue-label").remove();
+                    $("#filter").hide();
+                });
+                $("#filter .roboxue-label").click();
+                $("#filter").append($label);
+                $("#filter").show("highlight");
+                var search = $(this).text();
+                $(".roboxue-experience").filter(function (index) {
+                    return $(this).find(".roboxue-label").filter(function (index) {
+                        return $(this).text() == search;
+                    }).length == 0;
+                }).hide("fold");
+                $(".roboxue-education").filter(function (index) {
+                    return $(this).find(".roboxue-label").filter(function (index) {
+                        return $(this).text() == search;
+                    }).length == 0;
+                }).hide("fold");
+            });
+
+
+        });
+
+
+        var meta_data = {
+            northwestern: [
+                {title: "Data Scientist Intern", url: "http://www.brokersavant.com", company: "BrokerSavant Inc.", description: "Work Description", skills: [
+                    {type: "web", name: "Javascript - D3"},
+                    {type: "web", name: "HTML/CSS"},
+                    {type: "programming", name: "Python"},
+                    {type: "programming", name: "Ruby"},
+                    {type: "programming", name: "Bash"},
+                    {type: "database", name: "Postgresql"},
+                    {type: "database", name: "Mongodb"},
+                    {type: "analytics", name: "PostGis"},
+                    {type: "research", name: "Location Based Services"}
+                ]},
+                {title: "Credit Industry Big Data Visualization", url: "http://www.transunion.com", company: "TransUnion LLC.", description: "Work Description", skills: [
+                    {type: "programming", name: "SAS"},
+                    {type: "database", name: "Natezza"},
+                    {type: "analytics", name: "Tableau"},
+                    {type: "research", name: "Big Data"},
+                    {type: "research", name: "Data Visualization"},
+                    {type: "research", name: "Data Warehousing"}
+                ]},
+                {title: "Infant injuries visual analytics", url: "http://www.medilljusticeproject.org", company: "Medill Justice Project", description: "Work Description", skills: [
+                    {type: "web", name: "Javascript - Dojo"},
+                    {type: "web", name: "HTML/CSS"},
+                    {type: "programming", name: "python"},
+                    {type: "database", name: "MySQL"},
+                    {type: "analytics", name: "Tableau"},
+                    {type: "algorithm", name: "Regression"},
+                    {type: "algorithm", name: "Visual Analtyics"},
+                    {type: "research", name: "Data Visualization"},
+                    {type: "research", name: "Data Warehousing"}
+                ]},
+                {title: "Chain Store Retail Data Mining", url: "http://www.riteaid.com", company: "Rite Aid Pharmacy", description: "Work Description", skills: [
+                    {type: "programming", name: "SAS"},
+                    {type: "algorithm", name: "Clustering"},
+                    {type: "algorithm", name: "Retention Model"},
+                    {type: "algorithm", name: "Principle Component Analysis"},
+                    {type: "research", name: "Customer Lifetime Value"},
+                    {type: "research", name: "Marketing Strategy"}
+                ]},
+                {title: "Winner of IMO Hackathon", url: "http://www.northbynorthwestern.com/story/student-hackers-create-apps-for-competition/", company: "24-hr Hackathon by imo.im", description: "Work Description", skills: [
+                    {type: "web", name: "Javascript - jQuery"},
+                    {type: "web", name: "HTML/CSS"},
+                    {type: "research", name: "Hackathon"},
+                    {type: "research", name: "Online Gaming"}
+                ]}
+            ],
+            fudan: [
+                {title: "CTO", url: "http://stu.fudan.edu.cn", company: "Campus News Website", description: "Work Description", skills: [
+                    {type: "web", name: "Javascript - jQuery"},
+                    {type: "web", name: "HTML/CSS"},
+                    {type: "web", name: "SliverLight"},
+                    {type: "programming", name: "C#"},
+                    {type: "database", name: "SQL Server"},
+                    {type: "research", name: "Content Management System"}
+                ]}
+            ]
+        };
+
+        function add_experiences(school) {
+            var experiences = d3.select("#" + school).selectAll("div").data(meta_data[school]).enter();
+            var exp_root = experiences
+                    .append("div").attr("class", "list-group-item roboxue-experience");
+            experiences.append("br");
+            exp_root.append("h4").attr("class", "list-group-item-heading").text(function (d) {
+                return d.title;
+            })
+                    .append("span").attr("class", "pull-right")
+                    .append("a").attr("href",function (d) {
+                        return d.url;
+                    }).attr("target", "_blank").text(function (d) {
+                        return d.company;
+                    });
+            exp_root.append("p").attr("class", "list-group-item-text").text(function (d) {
+                return d.description;
+            });
+            exp_root.append("h5").attr("class", "roboxue-tags").selectAll("span").data(function (d) {
+                return d.skills;
+            }).enter()
+                    .append("span").attr("class",function (d) {
+                        return "label roboxue-label roboxue-label-" + d.type;
+                    }).text(function (d) {
+                        return d.name;
+                    });
+        }
+        add_experiences("northwestern");
+        add_experiences("fudan");
+    </script>
+
+
 {% endblock %}
