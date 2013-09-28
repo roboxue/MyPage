@@ -5,12 +5,12 @@ app = Flask(__name__)
 app.debug = True
 
 
-@app.route('/')
+@app.route('/resume')
 def resume():
     return render_template('resume.html')
 
 
-@app.route('/home/')
+@app.route('/')
 def home():
     return render_template('home.html')
 

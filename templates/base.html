@@ -33,10 +33,12 @@
                 <ul class="dropdown-menu">
                     <li><a href="{{ url_for('works')}}">All Works</a></li>
                     <li class="divider"></li>
-                    <li><a href="{{ url_for('works', _anchor='northwestern_university')}}">Northwestern University</a></li>
+                    <li><a href="{{ url_for('works', _anchor='northwestern_university')}}">Northwestern University</a>
+                    </li>
                     <li><a href="{{ url_for('works', _anchor='fudan_university')}}">Fudan University</a></li>
                 </ul>
             </li>
+            <li id="li_resume"><a href="{{ url_for('resume')}}" target="_blank">Resume</a></li>
         </ul>
         <h3 class="text-muted">Roboxue</h3>
     </div>

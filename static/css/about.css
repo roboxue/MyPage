@@ -21,6 +21,14 @@
     margin-top: 10px;
 }
 
+.roboxue-experience-summary{
+    font-weight: bold;
+}
+
+.roboxue-experience .list-group-item-text p:first-letter{
+    margin-left: 20px;
+}
+
 .roboxue-education-down {
 
 }
@@ -51,13 +59,9 @@
 }
 
 .roboxue-label-research {
-    background-color: blue;
+    background-color: navy;
 }
 
 .roboxue-label-algorithm {
     background-color: darkcyan;
-}
-
-.roboxue-education-program {
-    color: crimson;
 }
