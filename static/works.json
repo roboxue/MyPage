@@ -1,0 +1,657 @@
+{
+    "northwestern": [
+        {
+            "title": "(Ongoing) Prediction and Recommendation Engine from R to Mahout",
+            "url": "",
+            "company": "Nokia Siemens Networks",
+            "description": ["Nokia Siemens Networks is global leader in mobile broadband. To improve the 4G network's service availability and continuity, NSN is providing a solution using machine learning and big data analytics.",
+                "The engine will be in Mahout, a hadoop based machine learning platform. ",
+                "I will be exploring distributed ensemble learning algorithms like boosting using Mahout, and develop a Bayesian model for prediction and recommendation."],
+            "skills": [
+                {
+                    "type": "programming",
+                    "name": "Java"
+                },
+                {
+                    "type": "programming",
+                    "name": "Bash"
+                },
+                {
+                    "type": "analytics",
+                    "name": "Hadoop/Mahout"
+                },
+                {
+                    "type": "research",
+                    "name": "Machine Learning"
+                },
+                {
+                    "type": "research",
+                    "name": "Big Data"
+                },
+                {
+                    "type": "research",
+                    "name": "Prediction"
+                }
+            ]
+        },
+        {
+            "title": "Data Scientist Intern",
+            "url": "http://www.brokersavant.com",
+            "company": "BrokerSavant Inc.",
+            "description": ["BrokerSavant is a Chicago based startup company, who builds tools to help commercial real estate brokers. I interned there in Summer 2013.",
+                "In BrokerSavant, I created a marketing report engine that will query all the big data source we have access to and return the valuable marking data in a vivid web visualization, requiring only one street address as input. ",
+                "I also developed a web analytics dashboard to help our client and ourselves understand the web traffic that our sites generates"],
+            "skills": [
+                {
+                    "type": "web",
+                    "name": "Javascript - D3"
+                },
+                {
+                    "type": "web",
+                    "name": "Design"
+                },
+                {
+                    "type": "web",
+                    "name": "HTML/CSS"
+                },
+                {
+                    "type": "programming",
+                    "name": "Python"
+                },
+                {
+                    "type": "programming",
+                    "name": "Ruby"
+                },
+                {
+                    "type": "programming",
+                    "name": "Bash"
+                },
+                {
+                    "type": "database",
+                    "name": "Postgresql"
+                },
+                {
+                    "type": "database",
+                    "name": "MongoDB"
+                },
+                {
+                    "type": "analytics",
+                    "name": "PostGIS"
+                },
+                {
+                    "type": "research",
+                    "name": "Web Analytics"
+                },
+                {
+                    "type": "research",
+                    "name": "Big Data"
+                },
+                {
+                    "type": "research",
+                    "name": "Location Based Services"
+                },
+                {
+                    "type": "research",
+                    "name": "Commercial Real Estate"
+                }
+            ]
+        },
+        {
+            "title": "Credit Industry Big Data Visualization",
+            "url": "http://www.transunion.com",
+            "company": "TransUnion LLC.",
+            "description": ["TransUnion is one of the three credit bureaus in US, who tracks every credit payment in US. My program partnered with TransUnion in an eight-month industrial practicum project",
+                "During my eight-month time in TransUnion, I created a visualization tool which enables the user to understand the complicated credit data in several seconds.",
+                "To power the tool with big data, I designed a data warehouse architecture, which can compress the query time from several minutes to 2 secondes",
+                "**The underlying data is at TeraByte level (1TB=1000GB), if we print it out, the length of the printing paper equals the circumference of the earth."],
+            "skills": [
+                {
+                    "type": "analytics",
+                    "name": "Tableau"
+                },
+                {
+                    "type": "analytics",
+                    "name": "SAS"
+                },
+                {
+                    "type": "research",
+                    "name": "Big Data"
+                },
+                {
+                    "type": "research",
+                    "name": "Data Visualization"
+                },
+                {
+                    "type": "research",
+                    "name": "Data Warehousing"
+                },
+                {
+                    "type": "research",
+                    "name": "Finance"
+                }
+
+            ]
+        },
+        {
+            "title": "Infant Injuries Database and Analytics",
+            "url": "http://www.medilljusticeproject.org",
+            "company": "Medill Justice Project",
+            "description": ["The \"Medill Justice Project\" is a research group in Northwestern University lead by Alec Klein, they tried to build the first national and publicly available database of infant injuries and deaths related to shaken-baby-syndrome, to shed light on an increasingly controversial criminal-justice issue.",
+                "In this project, I helped building a web portal to explore and visualize the data, and statistically examined several assumptions about the shaken-baby-syndrome.",
+                "My team created a text mining engine as well, to assist researchers find valuable information from articles and newspapers to fill up the database"],
+            "skills": [
+                {
+                    "type": "web",
+                    "name": "Javascript - Dojo"
+                },
+                {
+                    "type": "web",
+                    "name": "HTML/CSS"
+                },
+                {
+                    "type": "programming",
+                    "name": "Python"
+                },
+                {
+                    "type": "database",
+                    "name": "MySQL"
+                },
+                {
+                    "type": "analytics",
+                    "name": "Tableau"
+                },
+                {
+                    "type": "algorithm",
+                    "name": "Regression"
+                },
+                {
+                    "type": "algorithm",
+                    "name": "Visual Analytics"
+                },
+                {
+                    "type": "research",
+                    "name": "Data Visualization"
+                },
+                {
+                    "type": "research",
+                    "name": "Data Warehousing"
+                }
+            ]
+        },
+        {
+            "title": "Winner of IMO Hackathon",
+            "url": "http://www.northbynorthwestern.com/story/student-hackers-create-apps-for-competition/",
+            "company": "24-hr Hackathon Held by IMO.im",
+            "description": ["IMO.im, an social networking startup in the Silicon Valley, held a 24-hr hackathon in November 2012. Using their API to do something creative is the only rule",
+                "I, together with my designer, wrote a turn based online strategy game in the given 24 hours and won the first prize, using the IMO's API to communicate messages and players' moves."],
+            "skills": [
+                {
+                    "type": "web",
+                    "name": "Javascript - jQuery"
+                },
+                {
+                    "type": "web",
+                    "name": "HTML/CSS"
+                },
+                {
+                    "type": "research",
+                    "name": "Hackathon"
+                }
+            ]
+        },
+        {
+            "title": "Retail Store Sales Data Mining",
+            "url": "",
+            "company": "Data Mining Course",
+            "description": ["As the Data Mining Course's class project, I performed data mining using a top-3 chain retail pharmacy's sales data",
+                "The first step is to do customer segmentation, using k-means and finite mixture model.",
+                "After located the most promising customer segmentation, I build a customer lifetime value evaluation model using survival analysis technique.",
+                "With a series of market basket and association rule study, I'm able to estimate the impact of a certain marketing strategy on the customer lifetime value.",
+                "Finally, with the finds above and taking the retail store's business facts into account, my team presented three business strategies to the pharmacy's executive officers"],
+            "skills": [
+                {
+                    "type": "analytics",
+                    "name": "SAS"
+                },
+                {
+                    "type": "algorithm",
+                    "name": "Clustering"
+                },
+                {
+                    "type": "algorithm",
+                    "name": "Survival Analysis"
+                },
+                {
+                    "type": "algorithm",
+                    "name": "Principle Component Analysis"
+                },
+                {
+                    "type": "research",
+                    "name": "Business Strategy"
+                }
+            ]
+        },
+        {
+            "title": "Electrical Vehicle Charging Station Locating",
+            "url": "",
+            "company": "Energy Analytics Course",
+            "description": ["The energy analytics class project's challenge is to find the principles of setting up electric vehicle (EV) charging stations, by analyzing the historical EV charging data.",
+                "To accomplish the goal, I performed a spacial regression using the charging stations' location related data as predictors.",
+                "As a side project, I also grouped the charging stations according to their usage trend, which are a bunch of time series graphs. This can help smoothing the data as well as making assumptions by visually checking the usage graphs."],
+            "skills": [
+                {
+                    "type": "programming",
+                    "name": "Python"
+                },
+                {
+                    "type": "database",
+                    "name": "Postgresql"
+                },
+                {
+                    "type": "analytics",
+                    "name": "PostGIS"
+                },
+                {
+                    "type": "algorithm",
+                    "name": "Spatial Regression"
+                },
+                {
+                    "type": "algorithm",
+                    "name": "Time Series Clustering"
+                },
+                {
+                    "type": "research",
+                    "name": "Transportation"
+                },
+                {
+                    "type": "research",
+                    "name": "Location Based Services"
+                }
+            ]
+        },
+        {
+            "title": "Visualizing Public Transportation Ridership Data",
+            "url": "",
+            "company": "Data Visualization Course",
+            "description": ["Pace Bus, the suburban bus service in great Chicago area. The Pace Bus is unique in that, unlike almost all other transit operators, it serves no downtown CBD, but serves a large geographic area with many points of interest.",
+                "My challenge in this project is to visualize this wide network's ridership data and help locate the inefficient routes, which will be used to optimize the bus network",
+                "By geocoding the bus stations and plot them onto the Chicago map using Tableau, and creating a series of them for different time period, the viewer can exam the trend of the ridership in the form of an animation.",
+                "By creating bubble maps to display the transit pattern, I can also classify bus routes into four groups: the \"Rivers\" that services a large area, the \"Branches\" that passengers take to transit to \"Rivers\", the \"Canals\" that connects several \"Rivers\", and the tiny \"Streams\" that doesn't have many riders."],
+            "skills": [
+                {
+                    "type": "programming",
+                    "name": "Python"
+                },
+                {
+                    "type": "analytics",
+                    "name": "Tableau"
+                },
+                {
+                    "type": "analytics",
+                    "name": "PostGIS"
+                },
+                {
+                    "type": "algorithm",
+                    "name": "Clustering"
+                },
+                {
+                    "type": "algorithm",
+                    "name": "Visual Analytics"
+                },
+                {
+                    "type": "algorithm",
+                    "name": "Classification Tree"
+                },
+                {
+                    "type": "research",
+                    "name": "Data Visualization"
+                },
+                {
+                    "type": "research",
+                    "name": "Transportation"
+                }
+            ]
+        },
+        {
+            "title": "Predicting Flight Delays in O'Hare Airport",
+            "url": "",
+            "company": "Predictive Analytics Course",
+            "description": ["Chicago O'Hare Airport is one of the busiest airport in the world. It must be very interesting to take a look at the ORD flights' on time performance data.",
+                "In order to predict the flight delays, we have to consider all the factors that can lead to delays: airlines, origin airports, weather at the moment of the departure, the travel distances and all other potential factors.",
+                "With the knowledge of predictive analytics, I have an excellent chance to test all the predictive models and to find the best model in terms of predictability.",
+                "Another challenge is to reduce the calculation time by utilizing all the 8 cores in my i7 CPU. With some tweaks in R, I can train 7 neural networks at the same time. Without this parallel computing tweak, it's impossible to complete all my calculations within one week."],
+            "skills": [
+                {
+                    "type": "database",
+                    "name": "Postgresql"
+                },
+                {
+                    "type": "analytics",
+                    "name": "R"
+                },
+                {
+                    "type": "algorithm",
+                    "name": "Neural Network"
+                },
+                {
+                    "type": "algorithm",
+                    "name": "Non Linear Regression"
+                },
+                {
+                    "type": "algorithm",
+                    "name": "Classification and Regression Tree"
+                },
+                {
+                    "type": "research",
+                    "name": "Transportation"
+                },
+                {
+                    "type": "research",
+                    "name": "Prediction"
+                },
+                {
+                    "type": "research",
+                    "name": "Parallel Computing"
+                },
+                {
+                    "type": "research",
+                    "name": "Big Data"
+                }
+            ]
+        },
+        {
+            "title": "Predicting Life Expectancy Using Health Data",
+            "url": "",
+            "company": "Statistics Methods for Data Mining Course",
+            "description": ["The Word Bank publishes a wide range of social development data by country annually, including health data. It's a perfect opportunity to test how a country's health care infrastructure influence their people's life expectancy.",
+                "In this project, I have run two series of regression models: the multi-linear regression and the logistic regression, and prune them to get rid of week predictors.",
+                "Our finding is that a country's AIDs status is the best indicator of it's health care system, and is also the most significant predictor to predict life expectancy among all the predictors we have."],
+            "skills": [
+                {
+                    "type": "analytics",
+                    "name": "R"
+                },
+                {
+                    "type": "analytics",
+                    "name": "SAS"
+                },
+                {
+                    "type": "algorithm",
+                    "name": "Regression"
+                },
+                {
+                    "type": "research",
+                    "name": "Prediction"
+                }
+            ]
+        },
+        {
+            "title": "Wifi Usage Data Mining",
+            "url": "",
+            "company": "Accenture Wifi Analytics Contest",
+            "description": ["Accenture, the leading technology consulting company held the first WIFI analytics contest in June 2013",
+                "My team has been provided with 30 days' wifi usage data in an office building. We confirmed that conference systems are very well utilized in the company, by noticing the usage on remote worker system and the usage in the conference area are highly correlated.",
+                "Thus we came to the business strategy that network provider can offer a tailored video conference system, to catch up with the \"bring your own device(BYOD)\" and mobile working trend."],
+            "skills": [
+                {
+                    "type": "analytics",
+                    "name": "Tableau"
+                },
+                {
+                    "type": "analytics",
+                    "name": "SAS"
+                },
+                {
+                    "type": "algorithm",
+                    "name": "Spatial Regression"
+                },
+                {
+                    "type": "algorithm",
+                    "name": "Visual Analytics"
+                },
+                {
+                    "type": "research",
+                    "name": "Data Visualization"
+                },
+                {
+                    "type": "research",
+                    "name": "Business Strategy"
+                },
+                {
+                    "type": "research",
+                    "name": "Hackathon"
+                }
+            ]
+        }
+    ],
+    "fudan": [
+        {
+            "title": "Technical Lead",
+            "url": "http://stu.fudan.edu.cn",
+            "company": "STU.fudan.edu.cn, The Fudan Student Website",
+            "description": ["STU.fudan.edu.cn is the largest student website in Fudan University, operated 100% by students who are interested.",
+                "During my three years time with the website, I'm honored to have contributed to the most successful release of our homepage in the recent years - as the leading developer. I've also reformed the entire backend of our homepage - from an outdated web form architecture to a morden Model-View-Controller architecture.",
+                "Most importantly, this is where I started to grown up. I started discussing product design at STU; started thinking about business strategy at STU; started team working at STU. It is at the STU that I realize the pleasure of working with people who share the same passion with me, and walk our way together!"
+            ],
+            "skills": [
+                {
+                    "type": "web",
+                    "name": "Javascript - jQuery"
+                },
+                {
+                    "type": "web",
+                    "name": "Design"
+                },
+                {
+                    "type": "web",
+                    "name": "HTML/CSS"
+                },
+                {
+                    "type": "web",
+                    "name": "SliverLight"
+                },
+                {
+                    "type": "web",
+                    "name": "ASP.net MVC"
+                },
+                {
+                    "type": "programming",
+                    "name": "C#"
+                },
+                {
+                    "type": "database",
+                    "name": "SQL Server"
+                },
+                {
+                    "type": "research",
+                    "name": "Operation"
+                }
+            ]
+        },
+        {
+            "title": "Cross Nation Cooperate Social Responsibility Study",
+            "url": "",
+            "company": "Holland Fellows",
+            "description": ["First launched in 1997, Holland Fellows is a joint scholar program by Fudan University in Shanghai and Appalachian State University in Boone, NC. 24 students - 12 from each university - will work together on a cross-nation social economic research during the 6 month time.",
+                "Selected as one of the Holland Fellows in 2012, I participated in a Cooperate Social Responsibility (CSR) research, to compare the enablers and disablers of CSR in both US and China. Our work was presented in Shanghai Forum, an international economic forum hosted by Fudan University."],
+            "skills": [
+                {
+                    "type": "research",
+                    "name": "Operation"
+                },
+                {
+                    "type": "research",
+                    "name": "Business Strategy"
+                }
+            ]
+        },
+        {
+            "title": "Fudan University News Website",
+            "url": "http://news.fudan.edu.cn",
+            "company": "Freelance Work",
+            "description": ["My university wants to reform its news site. And they found me directly to join the team, when I was just a sophomore (in 2009). What a great honor! ",
+                "Started for drafts on paper, I worked with 2 CS major students and a designing company to carry out the new release: The site should be somewhat official and serious, but it also needs to be student friendly - as students are very likely the major visitors. Keeping the design principle in mind, and combined with my experience in news site layout, we've got this beautiful site up in just 3 months!",
+                "Although all my work turns out to be on the backend side(which is not viewable), I did exhibit some design skills as well: all the banner pictures on the site are \"Made by Roboxue\"!"],
+            "skills": [
+                {
+                    "type": "web",
+                    "name": "PHP"
+                },
+                {
+                    "type": "web",
+                    "name": "HTML/CSS"
+                },
+                {
+                    "type": "web",
+                    "name": "Design"
+                },
+                {
+                    "type": "web",
+                    "name": "Javascript - jQuery"
+                },
+                {
+                    "type": "database",
+                    "name": "MySQL"
+                },
+                {
+                    "type": "research",
+                    "name": "Operation"
+                }
+            ]
+        },
+        {
+            "title": "Actuarial Mathematics Contest",
+            "url": "",
+            "company": "Munich Re Actuarial Mathematics Contest",
+            "description": ["Munich Re, the world leading reinsurance company, held this actuarial mathematics contest in 2012",
+                "There were multiple challenges in this contest: the time is very limited, 60 minutes to answer 50 questions; It was also a bilingual contest, 25 questions in Chinese and 25 in English.",
+                "I tackled down 32 questions: jsut enough for me to rank 4th among all the 500 attendants, plus some trivial prize to reward myself a very decent dinner :)"],
+            "skills": [
+                {
+                    "type": "research",
+                    "name": "Actuarial"
+                },
+                {
+                    "type": "research",
+                    "name": "Hackathon"
+                }
+            ]
+        },
+        {
+            "title": "Financial Modeling Contest",
+            "url": "",
+            "company": "Microsoft and Morgan Stanley Financial Modelling Contest",
+            "description": ["Microsoft - The IT giant who is focusing in cloud calculation in these years, and Morgan Stanley - The leading investment bank, launched this exotic option pricing contest featuring parallel computing technique.",
+                "During the 5 day contest, I was required to learn the high performance cluster platform (Microsoft HPC Server) and price four 1-year exotic options every day, using the 5-year price data provided.",
+                "This was a fresh experience for me - never have I applied what I've learnt from the financial modelling class to real life problems, and never have I coded any algorithm without the help of external libraries.",
+                "The result was not bad for me: I ranked top 25% after five days, with a positive net profit - but I failed to realize that the historical price data were actually Microsoft and Morgan Stanley's."],
+            "skills": [
+                {
+                    "type": "programming",
+                    "name": "C#"
+                },
+                {
+                    "type": "analytics",
+                    "name": "SAS"
+                },
+                {
+                    "type": "algorithm",
+                    "name": "Neural Network"
+                },
+                {
+                    "type": "algorithm",
+                    "name": "Time Series"
+                },
+                {
+                    "type": "research",
+                    "name": "Prediction"
+                },
+                {
+                    "type": "research",
+                    "name": "Finance"
+                },
+                {
+                    "type": "research",
+                    "name": "Parallel Computing"
+                },
+                {
+                    "type": "research",
+                    "name": "Hackathon"
+                }
+            ]
+        },
+        {
+            "title": "Small Business CRM Platform Development",
+            "url": "",
+            "company": "Freelance Work",
+            "description": ["As a freelance worker, I helped a local event service startup to setup its own customer relation management(CRM) system in 2012.",
+                "My client use 100% Apple devices: iPad, iPhone, Mac mini, MacBook... he used a personal light database solution on iOS called File Maker as his personal CRM software, and would like to scale it to cover all his employees device. Our cooperation was very successful, and delightful - my client is a gentleman from Germany, who (AMAZINGLY!) can speak Chinese very fluently! I sincerely wish his company every success in the future."],
+            "skills": [
+                {
+                    "type": "web",
+                    "name": "HTML/CSS"
+                },
+                {
+                    "type": "database",
+                    "name": "File Maker"
+                },
+                {
+                    "type": "research",
+                    "name": "Operation"
+                }
+            ]
+        },
+        {
+            "title": "Actuary Intern",
+            "url": "",
+            "company": "AIA Group",
+            "description": ["AIA Group is the largest, independent listed pan-Asian life insurance group in the world. In summer 2010, I was offered a two month full time internship in their actuarial department.",
+                "At that time, my dream was to be an actuary, working as an actuary intern was fabulous! I was assigned to learn an actuarial model of a unit-link insurance product, and modify the model to report the required figures.",
+                "The model was written in FoxPro and will generate an Excel file which can display the model outcome on demand. One of my remarkable achievements was that I cut the model running time from 4 hours to 30 minutes, by using the memory more wisely and applying a more efficient algorithm. This earned me an extra opportunity to write a retention rate model, which was proved to be a crucial model in all subscription based business several years later in my Data Mining course at Northwestern University"],
+            "skills": [
+                {
+                    "type": "analytics",
+                    "name": "FoxPro"
+                },
+                {
+                    "type": "analytics",
+                    "name": "Excel VBA"
+                },
+                {
+                    "type": "algorithm",
+                    "name": "Survival Analysis"
+                },
+                {
+                    "type": "research",
+                    "name": "Actuarial"
+                },
+                {
+                    "type": "research",
+                    "name": "Operation"
+                },
+                {
+                    "type": "research",
+                    "name": "Insurance"
+                }
+            ]
+        },
+        {
+            "title": "Business Analyst Intern",
+            "url": "",
+            "company": "Allianz China",
+            "description": ["Allianz is the top 3 insurance group in the world. In 2010 I spent three months interning in their operation group.",
+                "My job in Allianz was really simple, compared to all the other cool things I've done. I track the company's ongoing projects and produce a weekly productivity report based on the data I gathered.",
+                "However I still learned from this experience - about how to operate a big company with 500+ employees. My work granted me the privilege to talk to anyone in the company, to investigate their project experiences, and to find out what makes a team project successful. These knowledge can be applied in almost every industry"],
+            "skills": [
+                {
+                    "type": "research",
+                    "name": "Operation"
+                },
+                {
+                    "type": "research",
+                    "name": "Insurance"
+                }
+            ]
+        }
+    ]
+}
