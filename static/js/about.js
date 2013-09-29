@@ -1,5 +1,5 @@
         $(function () {
-            $.getJSON("/static/works.json", function (meta_data) {
+            $.getJSON("/data/", function (meta_data) {
                 add_experiences("northwestern", meta_data);
                 add_experiences("fudan", meta_data);
                 $("#northwestern-work-count").text(meta_data.northwestern.length + " projects");
