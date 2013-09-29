@@ -22,6 +22,12 @@ header #name {
     font-weight: bold;
 }
 
+#barcode{
+    width: 50pt;
+    height: 50pt;
+    float: right;
+}
+
 header #contact {
     text-align: center;
 }
@@ -31,7 +37,7 @@ header #email {
     padding-right: 18pt;
 }
 
-header #phone {
+header #webpage {
 }
 
 /*section*/
