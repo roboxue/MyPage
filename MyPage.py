@@ -1,7 +1,9 @@
 __author__ = 'roboxue'
-import json,sys,os
-from pymongo import MongoClient
+import json
+import sys
+import os
 
+from pymongo import MongoClient
 from flask import Flask, render_template
 
 
@@ -26,15 +28,15 @@ def works():
 
 @app.route('/data/')
 def data():
-    mongo=open(os.path.split(os.path.abspath(sys.argv[0]))[0]+"\\mongo",'r').read()
+    mongo = open(os.path.split(os.path.abspath(sys.argv[0]))[0] + "\\mongo", 'r').read()
     collection = MongoClient(mongo).app17383606
-    northwestern = list(collection.northwestern.find({},{"_id":0}).sort("order",-1))
-    fudan = list(collection.fudan.find({},{"_id":0}).sort("order",-1))
-    return json.dumps({"northwestern": northwestern, "fudan": fudan})
+    northwestern = list(collection.northwestern.find({}, {"_id": 0}).sort("order", -1))
+    fudan = list(collection.fudan.find({}, {"_id": 0}).sort("order", -1))
+    miscellaneous = list(collection.miscellaneous.find({}, {"_id": 0}).sort("order", -1))
+    return json.dumps({"northwestern": northwestern, "fudan": fudan, "miscellaneous": miscellaneous})
 
 
 if __name__ == "__main__":
-    # port = 8000
-    # app.debug = True
-    # app.run(port=port)
-    print data()
+    port = 8000
+    app.debug = True
+    app.run(port=port)

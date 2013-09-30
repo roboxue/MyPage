@@ -11,7 +11,7 @@
     <hr>
     <div class="panel panel-default" id="filter-candidates">
         <div class="panel-heading"><h4>
-            <span class="glyphicon glyphicon-collapse-down" id="toggle-filter">Filters:</span>
+            <span id="toggle-filter"><span class="glyphicon glyphicon-collapse-down"></span>Explore My Skill Set</span>
             <span class="well well-sm" id="filter" style="display: none;"></span></h4>
         </div>
         <ul class="list-group well well-sm" style="display: none;">
@@ -28,7 +28,7 @@
                 <span class="label roboxue-label roboxue-label-programming">Ruby</span>
                 <span class="label roboxue-label roboxue-label-programming">Bash</span>
                 <span class="label roboxue-label roboxue-label-programming">Java</span>
-                <span class="label roboxue-label roboxue-label-programming">C#</span>
+                <span class="label roboxue-label roboxue-label-programming">C</span>
             </li>
             <li class="list-group-item"><span class="col-md-2">Databases:</span>
                 <span class="label roboxue-label roboxue-label-database">Postgresql</span>
@@ -136,6 +136,38 @@
                     </div>
 
                     <div class="list-group" id="fudan" style="display: none;">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="list-group-item" id="miscellaneous_works">
+            <div class="row roboxue-education">
+                <div class="col-md-3 roboxue-education-logo">
+                    <img class="roboxue-education-logo img-responsive"
+                         src="{{ url_for('static',filename='images/Marvin.jpg') }}"
+                         alt="miscellaneous">
+                </div>
+                <div class="col-md-9">
+                    <div class="page-header">
+                        <h1>Miscellaneous <span class="pull-right">When I am Roboxue</span>
+                        </h1>
+                        <h4 class="text-muted">Roboxue &asymp; <span class="text-danger">Robot</span> + Xue &asymp;
+                            <span class="text-danger">Robert</span> + Xue
+                            <br>
+                            &larr; I use <a href="http://en.wikipedia.org/wiki/Marvin_the_Paranoid_Android"
+                                            target="_blank">Marvin</a> as my avatar online, but I'm not paranoid!
+                            <span class="pull-right">1990.05 - 2090.05 (I wish)</span>
+                        </h4>
+
+                        <h1 class="text-right">
+                            <span id="miscellaneous-work-count"></span>
+                            <span class="glyphicon glyphicon-collapse-down roboxue-education-down"></span>
+                        </h1>
+
+                    </div>
+
+                    <div class="list-group" id="miscellaneous" style="display: none;">
+
                     </div>
                 </div>
             </div>
