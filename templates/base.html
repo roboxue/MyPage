@@ -46,16 +46,16 @@
         <ul class="nav nav-pills pull-right">
             <li id="li_home"><a href="{{ url_for('home') }}">Home</a></li>
             <li id="li_about" class="dropdown">
-                <a href="{{ url_for('works') }}" class="dropdown-toggle" data-toggle="dropdown">
-                    Works<span class="caret"></span>
+                <a href="{{ url_for('work') }}" class="dropdown-toggle" data-toggle="dropdown">
+                    Work<span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a href="{{ url_for('works') }}">All Works</a></li>
+                    <li><a href="{{ url_for('work') }}">All Work</a></li>
                     <li class="divider"></li>
-                    <li><a href="{{ url_for('works', _anchor='northwestern_university') }}">Northwestern University</a>
+                    <li><a href="{{ url_for('work', _anchor='northwestern_university') }}">Northwestern University</a>
                     </li>
-                    <li><a href="{{ url_for('works', _anchor='fudan_university') }}">Fudan University</a></li>
-                    <li><a href="{{ url_for('works', _anchor='miscellaneous') }}">Miscellaneous</a></li>
+                    <li><a href="{{ url_for('work', _anchor='fudan_university') }}">Fudan University</a></li>
+                    <li><a href="{{ url_for('work', _anchor='miscellaneous') }}">Miscellaneous</a></li>
                     <li class="divider"></li>
                     <li><a href="http://github.com/roboxue" target="_blank">
                         <img class="github" src="{{ url_for('static',filename='images/GitHub-Mark.png') }}">
