@@ -55,7 +55,6 @@ section mark{
 section#experience {
     border-top: 1pt groove black;
 
-    border-bottom: 1pt groove black;
 }
 
 p.title {
@@ -76,11 +75,12 @@ section span.school {
 }
 
 section span.location {
+    display: inline-block;
 }
 
 section span.company {
     font-weight: bold;
-    width: 108pt;
+    width: 128pt;
     display: inline-block;
 }
 
