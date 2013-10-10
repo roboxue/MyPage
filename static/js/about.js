@@ -29,14 +29,16 @@ $(function () {
                 return $(this).find(".roboxue-label").filter(function () {
                     if (search == 'C')
                         return $(this).text() == 'C' || $(this).text() == 'C#' || $(this).text() == 'C++';
+                    else if (search == 'R')
+                        return $(this).text() == 'R';
                     else
                         return $(this).text().indexOf(search) != -1;
                 }).length != 0;
             }).show();
+            $(".roboxue-education").show();
             $("#northwestern-work-count").text($("#northwestern .roboxue-experience:visible").length + " of " + $("#northwestern .roboxue-experience").length + " projects");
             $("#fudan-work-count").text($("#fudan .roboxue-experience:visible").length + " of " + $("#fudan .roboxue-experience").length + " projects");
             $("#miscellaneous-work-count").text($("#miscellaneous .roboxue-experience:visible").length + " of " + $("#miscellaneous .roboxue-experience").length + " projects");
-            $(".roboxue-education").show();
             $(".roboxue-education").filter(function () {
                 return $(this).find(".roboxue-experience:visible").length == 0;
             }).hide();
