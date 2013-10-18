@@ -19,23 +19,23 @@
 
     </script>
     {% block head %}
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="keywords" content="Roboxue, Robert, Yan, Xue, Data Scientist, Chicago, Illinois, IL, US, Northwestern
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Roboxue, Robert, Yan, Xue, Data Scientist, Chicago, Illinois, IL, US, Northwestern
          Shanghai, China, Fudan, Analytics, Engineer, Machine Learning, Big Data">
-        <meta name="description" content="Robert Yan Xue(Roboxue)'s Personal Website">
-        <meta name="author" content="Robert Yan Xue(Roboxue)">
-        <!-- Bootstrap core CSS -->
-        <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.css') }}" rel="stylesheet">
-        <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap-theme.css') }}" rel="stylesheet">
-        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!--[if lt IE 9]>
+    <meta name="description" content="Robert Yan Xue(Roboxue)'s Personal Website">
+    <meta name="author" content="Robert Yan Xue(Roboxue)">
+    <!-- Bootstrap core CSS -->
+    <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap-theme.css') }}" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
     <link href="{{ url_for('static', filename='vendor/bootstrap/js/html5shiv.js') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='vendor/bootstrap/js/respond.min.js') }}" rel="stylesheet">
     <![endif]-->
-        <!-- Custom styles -->
-        <link href="{{ url_for('static', filename='css/base.css') }}" rel="stylesheet">
-        <title>{% block title %}{% endblock %} - Robert Yan Xue</title>
+    <!-- Custom styles -->
+    <link href="{{ url_for('static', filename='css/base.css') }}" rel="stylesheet">
+    <title>{% block title %}{% endblock %} - Robert Yan Xue</title>
     {% endblock %}
 </head>
 
@@ -44,23 +44,8 @@
     <div class="header">
         <ul class="nav nav-pills pull-right">
             <li id="li_home"><a href="{{ url_for('home') }}">Home</a></li>
-            <li id="li_about" class="dropdown">
-                <a href="{{ url_for('work') }}" class="dropdown-toggle" data-toggle="dropdown">
-                    Work<span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a href="{{ url_for('work') }}">All Work</a></li>
-                    <li class="divider"></li>
-                    <li><a href="{{ url_for('work', _anchor='northwestern_university') }}">Northwestern University</a>
-                    </li>
-                    <li><a href="{{ url_for('work', _anchor='fudan_university') }}">Fudan University</a></li>
-                    <li><a href="{{ url_for('work', _anchor='miscellaneous') }}">Miscellaneous</a></li>
-                    <li class="divider"></li>
-                    <li><a href="http://github.com/roboxue" target="_blank">
-                        <img class="github" src="{{ url_for('static',filename='images/GitHub-Mark.png') }}">
-                        Github @roboxue</a></li>
-                </ul>
-            </li>
+            <li id="li_travel"><a href="{{ url_for('travel') }}">Travel</a></li>
+            <li id="li_about"><a href="{{ url_for('work') }}"> Work </a></li>
             <li id="li_resume"><a href="{{ url_for('resume') }}" target="_blank">Resume</a></li>
         </ul>
         <h3 class="text-muted">Roboxue</h3>
@@ -80,7 +65,7 @@
                 新浪微博 @roboxue</a></li>
             <li><a href="http://www.linkedin.com/in/roboxue" target="_blank">
                 <img class="github" src="{{ url_for('static',filename='images/LinkedIn-Mark.png') }}">
-            </a></li>
+                LinkedIn</a></li>
         </ul>
     </footer>
 </div>

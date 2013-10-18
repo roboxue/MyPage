@@ -21,6 +21,11 @@ def home():
     return render_template('home.html')
 
 
+@app.route('/travel/')
+def travel():
+    return render_template('travel.html')
+
+
 @app.route('/work/')
 def work():
     return render_template('about.html')

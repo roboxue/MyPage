@@ -1,0 +1,40 @@
+#map-background{
+    fill:url(#gradient);
+}
+
+.country {
+    fill: #dbdd91;
+    stroke: #7b7b7b;
+    stroke-width: .5px;
+
+}
+
+.map-active {
+    fill: #ddb651;
+}
+
+.city-label {
+}
+
+.country-label {
+    fill: #5f5f5f;
+    fill-opacity: .5;
+    font-size: 5px;
+    font-weight: 300;
+    text-anchor: middle;
+    pointer-events: none;
+}
+
+.scandinavia {
+    font-size: 10px;
+
+}
+
+.route {
+    fill: none;
+    stroke: #ff3b3b;
+    stroke-width: 1px;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    pointer-events: none;
+}

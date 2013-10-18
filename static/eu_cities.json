@@ -1,0 +1,689 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Dublin",
+                "Visit": "2011-5-18",
+                "Country": "Ireland"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [ -6.26025, 53.357928 ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Rosslare",
+                "Visit": "2011-5-19",
+                "Country": "Ireland"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [ -6.336069, 52.253493 ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Cherbourg",
+                "Visit": "2011-5-20",
+                "Country": "France"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [ -1.626189, 49.642302 ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Bayeux",
+                "Visit": "2011-5-20",
+                "Country": "France"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [ -0.702644, 49.277651 ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Mont Saint-Michel",
+                "Visit": "2011-5-21",
+                "Country": "France"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [ -1.511185, 48.635957 ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Paris",
+                "Visit": "2011-5-21",
+                "Country": "France"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [ 2.354061, 48.866933 ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Dijon",
+                "Visit": "2011-5-22",
+                "Country": "France"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [ 5.042900, 47.328157 ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Lyon",
+                "Visit": "2011-5-23",
+                "Country": "France"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [ 4.834647, 45.771752 ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Avignon",
+                "Visit": "2011-5-24",
+                "Country": "France"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [ 4.805955, 43.960113 ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Marsille",
+                "Visit": "2011-5-25",
+                "Country": "France"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [ 5.371181, 43.308147 ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Nice",
+                "Visit": "2011-5-26",
+                "Country": "France"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [ 7.266917, 43.700537 ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Monaco",
+                "Visit": "2011-5-26",
+                "Country": "France"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [ 7.418861, 43.738767 ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Luxembourg City",
+                "Visit": "2011-5-27",
+                "Country": "Luxembourg"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [ 6.134381, 49.616213 ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Brussels",
+                "Visit": "2011-5-28",
+                "Country": "Belgium"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [ 4.349851, 50.859034 ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Gent",
+                "Visit": "2011-5-29",
+                "Country": "Belgium"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [ 3.729755, 51.060818 ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Brugge",
+                "Visit": "2011-5-29",
+                "Country": "Belgium"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [ 3.229774, 51.226668 ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Cologne",
+                "Visit": "2011-5-30",
+                "Country": "Germany"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [6.965229, 50.949343 ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Zurich",
+                "Visit": "2011-5-31",
+                "Country": "Switzerland"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [ 8.541475, 47.373477 ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Vaduz",
+                "Visit": "2011-5-31",
+                "Country": "Switzerland"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [ 9.51763, 47.142066 ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Chur",
+                "Visit": "2011-5-31",
+                "Country": "Switzerland"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [ 9.526837, 46.859369 ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Tirano",
+                "Visit": "2011-6-1",
+                "Country": "Italy"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [ 10.169894, 46.217198 ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Lugano",
+                "Visit": "2011-6-1",
+                "Country": "Switzerland"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [ 8.953445, 46.044642 ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Lucerne",
+                "Visit": "2011-6-2",
+                "Country": "Switzerland"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [ 8.315251, 47.052347 ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Geneva",
+                "Visit": "2011-6-3",
+                "Country": "Switzerland"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [ 6.142705, 46.199914 ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Jungfrau",
+                "Visit": "2011-6-4",
+                "Country": "Switzerland"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [ 7.96332, 46.54375 ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Copenhagen",
+                "Visit": "2011-6-5",
+                "Country": "Denmark"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [ 12.569681, 55.680488 ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Odense",
+                "Visit": "2011-6-6",
+                "Country": "Denmark"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [ 10.40807, 55.410307 ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Aarhus",
+                "Visit": "2011-6-6",
+                "Country": "Denmark"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [ 10.204136, 56.17117 ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Helsingor",
+                "Visit": "2011-6-7",
+                "Country": "Denmark"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [ 12.59337, 56.03465 ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Helsingborg",
+                "Visit": "2011-6-7",
+                "Country": "Sweden"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [ 12.70392, 56.043664 ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Gothenburg",
+                "Visit": "2011-6-8",
+                "Country": "Sweden"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [ 11.973518, 57.718819 ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Oslo",
+                "Visit": "2011-6-8",
+                "Country": "Norway"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [ 10.754139, 59.921646 ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Bergen",
+                "Visit": "2011-6-9",
+                "Country": "Norway"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [ 5.325417, 60.40368 ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Oslo",
+                "Visit": "2011-6-10",
+                "Country": "Norway"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [ 10.754139, 59.921646 ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Stockholm",
+                "Visit": "2011-6-12",
+                "Country": "Sweden"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [ 18.066227, 59.335991 ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Kiruna",
+                "Visit": "2011-6-13",
+                "Country": "Sweden"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [ 20.226122, 67.856526 ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Narvik",
+                "Visit": "2011-6-14",
+                "Country": "Norway"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [ 17.428239, 68.440093 ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Tromso",
+                "Visit": "2011-6-14",
+                "Country": "Norway"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [ 18.956806, 69.653744 ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Nordkapp",
+                "Visit": "2011-6-15",
+                "Country": "Norway"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [ 25.783361, 71.169838 ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Inari",
+                "Visit": "2011-6-16",
+                "Country": "Finland"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [ 27.376282, 68.930761 ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Rovaniemi",
+                "Visit": "2011-6-16",
+                "Country": "Finland"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [ 25.725835, 66.498547 ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Helsinki",
+                "Visit": "2011-6-13",
+                "Country": "Finland"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [ 24.94119, 60.173837 ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Tallinn",
+                "Visit": "2011-6-18",
+                "Country": "Estonia"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [ 24.758274, 59.445424 ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Munich",
+                "Visit": "2011-6-19",
+                "Country": "Germany"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [ 11.579487, 48.146847 ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Innsbruck",
+                "Visit": "2011-6-19",
+                "Country": "Austria"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [ 11.407139, 47.278763 ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Salzburg",
+                "Visit": "2011-6-19",
+                "Country": "Austria"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [ 13.054453, 47.814768 ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Budapest",
+                "Visit": "2011-6-20",
+                "Country": "Hungary"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [ 19.043324, 47.50607 ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Wien",
+                "Visit": "2011-6-21",
+                "Country": "Austria"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [ 16.379826, 48.21781 ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Amsterdam",
+                "Visit": "2011-6-22",
+                "Country": "Netherlands"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [ 4.899799, 52.378953 ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Den Oever",
+                "Visit": "2011-6-22",
+                "Country": "Netherlands"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [ 5.033009, 52.933327 ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Groningen",
+                "Visit": "2011-6-22",
+                "Country": "Netherlands"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [ 6.568743, 53.222891 ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Munich",
+                "Visit": "2011-6-23",
+                "Country": "Germany"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [ 11.579487, 48.146847 ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Fussen",
+                "Visit": "2011-6-24",
+                "Country": "Germany"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [ 10.692392, 47.576294 ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Berchtesgaden",
+                "Visit": "2011-6-25",
+                "Country": "Germany"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [ 12.999032, 47.629768 ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Titisse",
+                "Visit": "2011-6-26",
+                "Country": "Germany"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [ 8.150776, 47.901815 ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Freiburg",
+                "Visit": "2011-6-28",
+                "Country": "Germany"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [ 7.846882, 48.010138 ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Frankfurt",
+                "Visit": "2011-6-29",
+                "Country": "Germany"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [ 8.681843, 50.119257 ]
+            }
+        }
+    ]
+}
