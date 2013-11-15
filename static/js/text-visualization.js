@@ -1,4 +1,4 @@
-var width = 1000, height = 600;
+var width = 900, height = 600;
 var projection = d3.geo.mercator()
     .center([10, 40])
     .scale(140)
@@ -10,7 +10,7 @@ var path = d3.geo.path()
 
 var country_lookup = d3.map();
 
-var topicNames=["Aegean Sea","Northern Europe","Portugal","Arab","Spain","Britain","Russia","France","Generic Keywords","South of Sahara"];
+var topicNames = ["Aegean Sea", "Northern Europe", "Portugal", "Arab", "Spain", "Britain", "Russia", "France", "Politics", "South of Sahara"];
 queue().defer(d3.json, "/static/world_countries.json")
     .defer(d3.json, "/static/topic-word.json")
     .defer(d3.csv, "/static/wiki-capitals-topic-visualization.csv")
@@ -28,7 +28,7 @@ queue().defer(d3.json, "/static/world_countries.json")
                 update(d.id);
             })
             .text(function (d) {
-                return "Topic " + (d.id + 1)+": "+topicNames[d.id];
+                return "Topic " + (d.id + 1) + ": " + topicNames[d.id];
             });
         d3.select("#topics").selectAll("ul").data(topic).enter()
             .append("ul").attr("class", "list-group topics").attr("id",function (d) {
@@ -58,7 +58,7 @@ queue().defer(d3.json, "/static/world_countries.json")
 function update(topicId) {
     $(".topics").hide();
     $("#topic" + (topicId + 1)).show();
-    d3.select("#currentTopic").text("Topic" + (topicId + 1));
+    d3.select("#currentTopic").text("Topic" + (topicId + 1) + ": " + topicNames[topicId]);
     var quantize = d3.scale.quantize()
         .domain([d3.min(country_lookup.values(), function (d) {
             return d[topicId]

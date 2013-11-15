@@ -10,18 +10,24 @@ Text Analytics Visualization
 {% block content %}
 <div class="page-header">
     <h1>Ten most frequent topics around the world</h1>
-    <h4>As a part of my Northwestern University Text Analytics assignment, this visualization displayed the top ten
+    <h4>&nbsp;&nbsp;&nbsp;&nbsp;As a part of my Northwestern University Text Analytics assignment, this visualization displayed the top ten
         topics around the world,
         based on all countries' wikipedia introduction page. All the vocabularies appeared in those introductions are
         classified into ten "topics", based on
         <a href="http://en.wikipedia.org/wiki/Latent_Dirichlet_allocation">Latent_Dirichlet_allocation</a> algorithm.
-        The top ten words in each topic will be displayed as well.</h5>
+        The top ten words in each topic will be displayed as well.</h4>
+        <p class="text-right">**The words are pre-processed by a <a
+                href="http://en.wikipedia.org/wiki/Stemming">Stemmer</a>, so that the word are returned to their stem
+            form, reducing the morphology's impact.</p>
+
+        <p class="text-right">**The map visualization might take some time to load... Also need the help of a modern
+            browser like IE10+, Chrome, Firefox or Safari.</p>
 </div>
 <div class="row">
-    <div class="col-lg-10">
+    <div class="col-lg-9">
         <div id="world"></div>
     </div>
-    <div class="col-lg-2">
+    <div class="col-lg-3">
         <nav class="navbar navbar-default" role="navigation">
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
