@@ -46,6 +46,14 @@
             <li id="li_home"><a href="{{ url_for('home') }}">Home</a></li>
             <li id="li_travel"><a href="{{ url_for('travel') }}">Travel</a></li>
             <li id="li_about"><a href="{{ url_for('work') }}"> Work </a></li>
+            <li id="li_gallery" class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    Gallery<span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="{{ url_for('text') }}">Text Analytics</a></li>
+                </ul>
+            </li>
             <li id="li_resume"><a href="{{ url_for('resume') }}" target="_blank">Resume</a></li>
         </ul>
         <h3 class="text-muted">Roboxue</h3>

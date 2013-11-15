@@ -25,6 +25,9 @@ def home():
 def travel():
     return render_template('travel.html')
 
+@app.route('/text-analytics-visualization')
+def text():
+    return render_template('text-visualization.html')
 
 @app.route('/work/')
 def work():

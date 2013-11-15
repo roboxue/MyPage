@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}
+Text Analytics Visualization
+{% endblock %}
+{% block head %}
+{{ super() }}
+<!-- Custom styles -->
+<link href="{{ url_for('static', filename='css/text-visualization.css') }}" rel="stylesheet">
+{% endblock %}
+{% block content %}
+<div class="page-header">
+    <h1>Ten most frequent topics around the world</h1>
+    <h4>As a part of my Northwestern University Text Analytics assignment, this visualization displayed the top ten
+        topics around the world,
+        based on all countries' wikipedia introduction page. All the vocabularies appeared in those introductions are
+        classified into ten "topics", based on
+        <a href="http://en.wikipedia.org/wiki/Latent_Dirichlet_allocation">Latent_Dirichlet_allocation</a> algorithm.
+        The top ten words in each topic will be displayed as well.</h5>
+</div>
+<div class="row">
+    <div class="col-lg-10">
+        <div id="world"></div>
+    </div>
+    <div class="col-lg-2">
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown"><span id="currentTopic">Topics</span> <b
+                                class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="topicButton" id="topicList">
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div id="topics"></div>
+    </div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='vendor/d3/topojson.v1.min.js') }}"></script>
+<script src="{{ url_for('static', filename='vendor/d3/queue.v1.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/text-visualization.js') }}"></script>
+<script>
+    $(function () {
+        $("#li_gallery").addClass("active");
+    });
+
+</script>
+{% endblock %}
