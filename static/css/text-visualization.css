@@ -18,12 +18,38 @@
     pointer-events: none;
 }
 
-.q0-9 { fill:rgb(247,251,255); }
-.q1-9 { fill:rgb(222,235,247); }
-.q2-9 { fill:rgb(198,219,239); }
-.q3-9 { fill:rgb(158,202,225); }
+.q0-9 { fill:#fff; }
+.q1-9 { fill:#ddd; }
+.q2-9 { fill:#bbb; }
+.q3-9 { fill:#999; }
 .q4-9 { fill:rgb(107,174,214); }
 .q5-9 { fill:rgb(66,146,198); }
 .q6-9 { fill:rgb(33,113,181); }
 .q7-9 { fill:rgb(8,81,156); }
 .q8-9 { fill:rgb(8,48,107); }
+
+.topic0{fill:#1f77b4;}
+.topic1{fill:#ff7f0e;}
+.topic2{fill:#2ca02c;}
+.topic3{fill:#d62728;}
+.topic4{fill:#9467bd;}
+.topic5{fill:#8c564b;}
+.topic6{fill:#e377c2;}
+.topic7{fill:#7f7f7f;}
+.topic8{fill:#bcbd22;}
+.topic9{fill:#17becf;}
+
+li.topic0{color:#1f77b4;}
+li.topic1{color:#ff7f0e;}
+li.topic2{color:#2ca02c;}
+li.topic3{color:#d62728;}
+li.topic4{color:#9467bd;}
+li.topic5{color:#8c564b;}
+li.topic6{color:#e377c2;}
+li.topic7{color:#7f7f7f;}
+li.topic8{color:#bcbd22;}
+li.topic9{color:#17becf;}
+
+#legend{
+    cursor: pointer;
+}

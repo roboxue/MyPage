@@ -10,7 +10,7 @@ var path = d3.geo.path()
 
 var country_lookup = d3.map();
 
-var topicNames = ["Aegean Sea", "Northern Europe", "Portugal", "Arab", "Spain", "Britain", "Russia", "France", "Politics", "South of Sahara"];
+var topicNames = ["Aegean Sea", "German", "Portugal", "Arab", "Spain", "Britain", "Russia", "France", "Generic words", "South of Sahara"];
 queue().defer(d3.json, "/static/world_countries.json")
     .defer(d3.json, "/static/topic-word.json")
     .defer(d3.csv, "/static/wiki-capitals-topic-visualization.csv")
@@ -22,15 +22,34 @@ queue().defer(d3.json, "/static/world_countries.json")
                     parseInt(cities[i]["topic7"]), parseInt(cities[i]["topic8"]), parseInt(cities[i]["topic9"]),
                     parseInt(cities[i]["topic10"])]);
         }
-        d3.select("#topicList").selectAll("li").data(topic).enter()
-            .append("li").attr("role", "presentation").append("a").attr("role", "menuitem")
+        d3.select("#topicList").append("li").attr("role", "presentation").append("a").attr("role", "menuitem")
+            .attr("href", "#")
+            .on("click", distribution)
+            .text("Topic Distribution");
+
+        d3.select("#topics").append("ul").attr("class", "list-group").attr("id", "legend")
+            .selectAll("li").data(topicNames).enter().append("li")
+            .on("click", function (d) {
+                update(topicNames.indexOf(d));
+            }).attr("class",function (d) {
+                return "list-group-item topic"+topicNames.indexOf(d);
+            }).text(function (d) {
+                if(d==topicNames[8])
+                    return d+"(Not displayed on map)";
+                return d;
+            });
+
+        d3.select("#topicList").selectAll("li .topicList").data(topic).enter()
+            .append("li").attr("class", "topicList").attr("role", "presentation").append("a").attr("role", "menuitem")
+            .attr("href", "#")
             .on("click", function (d) {
                 update(d.id);
             })
             .text(function (d) {
                 return "Topic " + (d.id + 1) + ": " + topicNames[d.id];
             });
-        d3.select("#topics").selectAll("ul").data(topic).enter()
+
+        d3.select("#topics").selectAll("ul .topics").data(topic).enter()
             .append("ul").attr("class", "list-group topics").attr("id",function (d) {
                 return "topic" + (d.id + 1);
             }).selectAll("li").data(function (d) {
@@ -51,12 +70,45 @@ queue().defer(d3.json, "/static/world_countries.json")
             .attr("class", "country")
             .attr("d", path)
             .append("title");
-        update(0);
+        distribution();
 
     });
 
+function distribution() {
+    $("#topics ul").hide();
+    $("#legend").show();
+    d3.select("#currentTopic").text("Topic Distribution");
+    var g = d3.select("g");
+    g.selectAll("path.country")
+        .attr("class", function (d) {
+            if (!country_lookup.has(d.properties.NAME_12))
+                return "country";
+            //Remove Politics category
+            var array=country_lookup.get(d.properties.NAME_12);
+            var temp=array[8];
+            array[8]=0;
+            var result= "country " + "topic" + array.indexOf(d3.max(array));
+            array[8]=temp;
+            return result;
+        });
+
+    g.selectAll("path.country title")
+        .text(function (d) {
+            var name = d.properties.NAME_12;
+            if (!country_lookup.has(name))
+                return name;
+            var array=country_lookup.get(name);
+            //Remove Politics category
+            var temp=array[8];
+            array[8]=0;
+            var result= name + ":" + topicNames[array.indexOf(d3.max(array))];
+            array[8]=temp;
+            return result;
+        });
+}
+
 function update(topicId) {
-    $(".topics").hide();
+    $("#topics ul").hide();
     $("#topic" + (topicId + 1)).show();
     d3.select("#currentTopic").text("Topic" + (topicId + 1) + ": " + topicNames[topicId]);
     var quantize = d3.scale.quantize()
