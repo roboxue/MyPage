@@ -1,54 +1,51 @@
 $(function () {
-    $.getJSON("/data/", function (meta_data) {
-        add_experiences("northwestern", meta_data);
-        add_experiences("fudan", meta_data);
-        add_experiences("miscellaneous", meta_data);
-        $("#northwestern-work-count").text(meta_data.northwestern.length + " projects");
-        $("#fudan-work-count").text(meta_data.fudan.length + " projects");
-        $("#miscellaneous-work-count").text(meta_data.miscellaneous.length + " projects");
+    add_experiences("northwestern", meta_data);
+    add_experiences("fudan", meta_data);
+    add_experiences("miscellaneous", meta_data);
+    $("#northwestern-work-count").text(meta_data.northwestern.length + " projects");
+    $("#fudan-work-count").text(meta_data.fudan.length + " projects");
+    $("#miscellaneous-work-count").text(meta_data.miscellaneous.length + " projects");
 
-        $(".roboxue-label").click(function () {
-            var $label = $(this).clone().append("<span class='glyphicon glyphicon-remove'></span>");
-            $label.click(function () {
-                $(".roboxue-experience").show("blind");
-                $(".roboxue-education").show("blind");
-                $("#filter .roboxue-label").remove();
-                $("#filter").hide();
-                $("#northwestern-work-count").text($("#northwestern .roboxue-experience:visible").length + " projects");
-                $("#fudan-work-count").text($("#fudan .roboxue-experience:visible").length + " projects");
-                $("#miscellaneous-work-count").text($("#miscellaneous .roboxue-experience:visible").length + " projects");
-            });
-            if ($("#filter").find(".roboxue-label").length > 0) {
-                $("#filter .roboxue-label").remove();
-            }
-            $("#filter").append($label);
-            $("#filter").show("highlight");
-            var search = $(this).text();
-            $(".roboxue-experience").hide();
-            $(".roboxue-experience").filter(function () {
-                return $(this).find(".roboxue-label").filter(function () {
-                    if (search == 'C')
-                        return $(this).text() == 'C' || $(this).text() == 'C#' || $(this).text() == 'C++';
-                    else if (search == 'R')
-                        return $(this).text() == 'R';
-                    else
-                        return $(this).text().indexOf(search) != -1;
-                }).length != 0;
-            }).show();
-            $(".roboxue-education").show();
-            $("#northwestern-work-count").text($("#northwestern .roboxue-experience:visible").length + " of " + $("#northwestern .roboxue-experience").length + " projects");
-            $("#fudan-work-count").text($("#fudan .roboxue-experience:visible").length + " of " + $("#fudan .roboxue-experience").length + " projects");
-            $("#miscellaneous-work-count").text($("#miscellaneous .roboxue-experience:visible").length + " of " + $("#miscellaneous .roboxue-experience").length + " projects");
-            $(".roboxue-education").filter(function () {
-                return $(this).find(".roboxue-experience:visible").length == 0;
-            }).hide();
-            $(".roboxue-education").filter(function () {
-                return $(this).find(".roboxue-experience:visible").length != 0;
-            }).show("highlight");
+    $(".roboxue-label").click(function () {
+        var $label = $(this).clone().append("<span class='glyphicon glyphicon-remove'></span>");
+        $label.click(function () {
+            $(".roboxue-experience").show("blind");
+            $(".roboxue-education").show("blind");
+            $("#filter .roboxue-label").remove();
+            $("#filter").hide();
+            $("#northwestern-work-count").text($("#northwestern .roboxue-experience:visible").length + " projects");
+            $("#fudan-work-count").text($("#fudan .roboxue-experience:visible").length + " projects");
+            $("#miscellaneous-work-count").text($("#miscellaneous .roboxue-experience:visible").length + " projects");
         });
+        if ($("#filter").find(".roboxue-label").length > 0) {
+            $("#filter .roboxue-label").remove();
+        }
+        $("#filter").append($label);
+        $("#filter").show("highlight");
+        var search = $(this).text();
+        $(".roboxue-experience").hide();
+        $(".roboxue-experience").filter(function () {
+            return $(this).find(".roboxue-label").filter(function () {
+                if (search == 'C')
+                    return $(this).text() == 'C' || $(this).text() == 'C#' || $(this).text() == 'C++';
+                else if (search == 'R')
+                    return $(this).text() == 'R';
+                else
+                    return $(this).text().indexOf(search) != -1;
+            }).length != 0;
+        }).show();
+        $(".roboxue-education").show();
+        $("#northwestern-work-count").text($("#northwestern .roboxue-experience:visible").length + " of " + $("#northwestern .roboxue-experience").length + " projects");
+        $("#fudan-work-count").text($("#fudan .roboxue-experience:visible").length + " of " + $("#fudan .roboxue-experience").length + " projects");
+        $("#miscellaneous-work-count").text($("#miscellaneous .roboxue-experience:visible").length + " of " + $("#miscellaneous .roboxue-experience").length + " projects");
+        $(".roboxue-education").filter(function () {
+            return $(this).find(".roboxue-experience:visible").length == 0;
+        }).hide();
+        $(".roboxue-education").filter(function () {
+            return $(this).find(".roboxue-experience:visible").length != 0;
+        }).show("highlight");
     });
 
-    $("#li_about").addClass("active");
 
     $(".roboxue-education-down").click(function () {
         $(this).parents(".col-md-9").children(".list-group").toggle("blind", 1000);

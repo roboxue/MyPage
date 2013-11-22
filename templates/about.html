@@ -176,6 +176,12 @@
 {% endblock %}
 {% block scripts %}
     <script src="{{ url_for('static', filename='vendor/bootstrap/js/holder.js') }}"></script>
+    <script>
+        $("#li_about").addClass("active");
+        {% autoescape false%}
+        var meta_data={{ data}};
+        {% endautoescape %}
+    </script>
     <script src="{{ url_for('static', filename='js/about.js') }}"></script>
 
 {% endblock %}

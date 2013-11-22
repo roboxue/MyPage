@@ -31,18 +31,13 @@ def text():
 
 @app.route('/work/')
 def work():
-    return render_template('about.html')
-
-
-@app.route('/data/')
-def data():
     mongo = open(os.path.split(os.path.abspath(sys.argv[0]))[0] + "\\mongo", 'r').read()
     collection = MongoClient(mongo).app17383606
     northwestern = list(collection.northwestern.find({}, {"_id": 0}).sort("order", -1))
     fudan = list(collection.fudan.find({}, {"_id": 0}).sort("order", -1))
     miscellaneous = list(collection.miscellaneous.find({}, {"_id": 0}).sort("order", -1))
-    return json.dumps({"northwestern": northwestern, "fudan": fudan, "miscellaneous": miscellaneous})
-
+    return render_template('about.html',
+                           data=json.dumps({"northwestern": northwestern, "fudan": fudan, "miscellaneous": miscellaneous}))
 
 if __name__ == "__main__":
     port = 8000
