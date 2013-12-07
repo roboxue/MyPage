@@ -21,9 +21,9 @@ def home():
     return render_template('home.html')
 
 
-@app.route('/data/friends/speakwith')
-def getFriendsChordData():
-    mongo = open(os.path.split(os.path.abspath(sys.argv[0]))[0] + "\\mongo", 'r').read()
+@app.route('/friends')
+def friends():
+    mongo = open(os.path.split(os.path.abspath(sys.argv[0]))[0] + "/mongo", 'r').read()
     collection = MongoClient(mongo).app17383606
     acts = list(collection.friend.find({},
         {"season": 1, "episode": 1, "title": 1, "act": 1, "scene": 1, "actualCharacters": 1, "_id": 0}))
@@ -42,7 +42,7 @@ def text():
 
 @app.route('/work/')
 def work():
-    mongo = open(os.path.split(os.path.abspath(sys.argv[0]))[0] + "\\mongo", 'r').read()
+    mongo = open(os.path.split(os.path.abspath(sys.argv[0]))[0] + "/mongo", 'r').read()
     collection = MongoClient(mongo).app17383606
     northwestern = list(collection.northwestern.find({}, {"_id": 0}).sort("order", -1))
     fudan = list(collection.fudan.find({}, {"_id": 0}).sort("order", -1))

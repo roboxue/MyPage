@@ -205,7 +205,7 @@ function updateChordChart(season) {
             var sinb = Math.sin((d.target.startAngle + d.target.endAngle) / 2);
             if (sinb == d3.min([0, sina, sinb])) {
                 return 0;
-            } else if (sina == d3.max([0, sina, sinb])) {
+            } else if (sinb == d3.max([0, sina, sinb])) {
                 return 1;
             } else {
                 return sinb / sina;
