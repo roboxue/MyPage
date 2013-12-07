@@ -1,5 +1,24 @@
-.chord path{
+.chord path {
     fill-opacity: .67;
     stroke: #000;
     stroke-width: .5px;
+}
+
+.Monica {
+    color: #1f77b4;
+}
+.Ross {
+    color: #ff7f0e;
+}
+.Rachel {
+    color: #2ca02c;
+}
+.Joey {
+    color: #d62728;
+}
+.Chandler {
+    color: #9467bd;
+}
+.Phoebe {
+    color: #8c564b;
 }

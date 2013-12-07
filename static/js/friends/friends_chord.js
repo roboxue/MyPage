@@ -1,17 +1,18 @@
+var characters = ["Monica", "Ross", "Rachel", "Joey", "Chandler", "Phoebe"];
+var charactersColor = ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#8c564b"];
 var seasonsAvailable = 8;
 
 d3.select("#season_selector").selectAll("li").data(d3.range(seasonsAvailable + 1))
-    .enter().append("li").attr("class", function (d) {
-        return d == 0 ? "list-group-item active" : "list-group-item";
-    })
+    .enter()
+    .append("li").attr("role", "presentation")
+    .append("a").attr("role", "menuitem").attr("href", "#")
     .style("cursor", "pointer")
     .text(function (d) {
-        return d == 0 ? "All" : "Season " + d;
+        return d == 0 ? "All Seasons" : "Season " + d;
     }).on("click", function (d) {
         updateBarChart(d);
         updateChordChart(d);
-        $("#season_selector li").removeClass("active");
-        $(this).addClass("active");
+        d3.select("#currentSeason").text(d == 0 ? "All Seasons" : "Season " + d).append("span").attr("class", "caret");
     });
 
 function getMatrix(season) {
@@ -37,13 +38,13 @@ function getMatrix(season) {
     return matrix
 }
 
-var characters = ["Monica", "Ross", "Rachel", "Joey", "Chandler", "Phoebe"];
-var charactersColor = ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#8c564b"];
+
 function getCharacterId(name) {
     for (var i = 0; i < characters.length; i++) {
         if (characters[i] == name)
             return i;
     }
+    return null;
 }
 
 var chordWidth = 700, chordHeight = 600, innerRadius = Math.min(chordWidth, chordHeight) * 0.35,
@@ -53,6 +54,44 @@ var barchartPaddingLeft = 5, barchartWidth = 125, barchartRowHeight = 25, barcha
 var fill = d3.scale.ordinal()
     .domain(d3.range(6))
     .range(charactersColor);
+
+var svg = d3.select("#chord").append("svg")
+    .attr("width", chordWidth)
+    .attr("height", chordHeight)
+    .append("g")
+    .attr("transform", "translate(" + chordWidth / 2 + "," + chordHeight / 2 + ")");
+
+var names = svg.append("g").selectAll("text.character").data(characters)
+    .enter().append("text").attr("class", "character")
+    .style("text-anchor", "middle")
+    .text(function (d) {
+        return d;
+    });
+
+var docks = svg.append("g");
+docks.selectAll("path")
+    .data(d3.range(characters.length))
+    .enter().append("path")
+    //Defining the color
+    .style("fill", function (d) {
+        return fill(d);
+    })
+    .style("stroke", function (d) {
+        return fill(d);
+    })
+    .on("mouseover", fade(.1))
+    .on("mouseout", fade(1))
+    .append("title");
+
+var chords = svg.append("g").attr("class", "chord");
+chords.selectAll("path").data(d3.range(characters.length * (characters.length - 1) / 2)).enter()
+    .append("path")
+    .style("fill", function (d, i) {
+        return "url(#pattern" + i + ")";
+    })
+    .append("title");
+
+var defs = chords.selectAll("defs").data(d3.range(characters.length * (characters.length - 1) / 2)).enter().append("defs");
 
 
 var barchart = d3.select("#barchart").append("svg")
@@ -64,87 +103,92 @@ barchart.selectAll("rect").data(characters).enter()
 barchart.selectAll("text").data(characters).enter()
     .append("text");
 
+function groupTicks(d) {
+    //%5 ticks
+    var k = (d.endAngle - d.startAngle) / 10;
+    return d3.range(1, 11).map(function (v) {
+        return {
+            "angle": v * k + d.startAngle,
+            //Only multiples of 5k
+            "label": v % 2 ? null : (v * 10) + "%"
+        };
+    });
+}
+
+function fade(opacity) {
+    return function (g, i) {
+        svg.selectAll(".chord path")
+            .filter(function (d) {
+                return d.source.index != i && d.target.index != i;
+            })
+            .transition()
+            .style("opacity", opacity);
+    };
+}
+
 updateChordChart(0);
 updateBarChart(0);
 
 function updateBarChart(season) {
-    var speakingStat = {"Monica": 0, "Ross": 0, "Rachel": 0, "Joey": 0, "Chandler": 0, "Phoebe": 0};
+    var talkativeStat = [0, 0, 0, 0, 0, 0];
     for (var i = 0; i < acts.length; i++) {
         if (season == 0 || acts[i].season == season) {
             var charactersInAct = acts[i].actualCharacters;
             if (charactersInAct.length > 0)
                 for (var j = 0; j < charactersInAct.length; j++)
-                    speakingStat[charactersInAct[j].name] += charactersInAct[j].value;
+                    talkativeStat[getCharacterId(charactersInAct[j].name)] += charactersInAct[j].value;
         }
     }
-    barchart.selectAll("rect").data(characters).attr({"height": barchartRowHeight, "x": barchartPaddingLeft})
+    var talk_record = d3.max(talkativeStat);
+    var most_talkative_character = characters[talkativeStat.indexOf(talk_record)];
+    barchart.selectAll("rect").data(talkativeStat).attr({"height": barchartRowHeight, "x": barchartPaddingLeft})
         .attr("width", function (d) {
-            return barchartWidth * speakingStat[d] / d3.max(characters, function (d) {
-                return speakingStat[d];
-            });
+            return barchartWidth * d / talk_record;
         })
         .attr("y", function (d, i) {
             return i * (barchartRowHeight + barchartRowPadding);
         })
         .style("fill", function (d, i) {
             return charactersColor[i];
-        })
+        });
 
-    barchart.selectAll("text").data(characters).attr("dy", "0.5em")
+    barchart.selectAll("text").data(talkativeStat).attr("dy", "0.5em")
         .attr("transform", function (d, i) {
             return "translate(" + (barchartPaddingLeft + 5) + "," + (barchartRowHeight / 2 + i * (barchartRowHeight + barchartRowPadding)) + ")";
         })
         .style("fill", "#ffffff")
-        .text(function (d) {
-            return d + ": " + speakingStat[d];
+        .text(function (d, i) {
+            return characters[i] + ": " + d;
         });
 
+    var talkative_stat = d3.select("#talkative_stat");
+    talkative_stat.selectAll("span").remove();
+    talkative_stat.append("span").text("The most talkative character is ");
+    talkative_stat.append("span").text(most_talkative_character).attr("class", most_talkative_character);
 }
 
 
 function updateChordChart(season) {
     var chord = d3.layout.chord()
         .padding(.05)
+        .sortSubgroups(d3.ascending)
         .matrix(getMatrix(season));
-
-    d3.select("#chord_chart").remove();
-    var svg = d3.select("#chord").append("svg")
-        .attr("width", chordWidth)
-        .attr("height", chordHeight)
-        .attr("id", "chord_chart")
-        .append("g")
-        .attr("transform", "translate(" + chordWidth / 2 + "," + chordHeight / 2 + ")");
-
-    var names = svg.append("g").selectAll("text.character").data(chord.groups)
-        .enter().append("text").attr("class", "character")
+    names.data(chord.groups)
+        .transition().duration(500)
         .attr("transform", function (d) {
             return "translate(" + (outerRadius + 70) * Math.sin((d.startAngle + d.endAngle) / 2) + "," + (-70 - outerRadius) * Math.cos((d.startAngle + d.endAngle) / 2) + ")";
-        })
-        .style("text-anchor", "middle")
-        .text(function (d) {
-            return characters[d.index];
-        })
-
-//All the curves connecting each characters
-    var docks = svg.append("g").selectAll("path")
-        .data(chord.groups)
-        .enter().append("path")
-        //Defining the color
-        .style("fill", function (d) {
-            return fill(d.index);
-        })
-        .style("stroke", function (d) {
-            return fill(d.index);
-        })
-        .attr("d", d3.svg.arc().innerRadius(innerRadius).outerRadius(outerRadius))
-        .on("mouseover", fade(.1))
-        .on("mouseout", fade(1));
-    docks.append("title")
-        .text(function (d) {
-            return characters[d.index] + ":" + parseInt(d.value);
         });
 
+//All the curves representing each characters
+    docks.selectAll("path").data(chord.groups)
+        .transition().duration(500)
+        .attr("d", d3.svg.arc().innerRadius(innerRadius).outerRadius(outerRadius));
+    docks.selectAll("title").data(chord.groups)
+        .text(function (d) {
+            return characters[d.index] + " was heard by " + parseInt(d.value) + " audiences";
+        });
 
+    svg.select("#ticks").remove();
     var ticks = svg.append("g").attr("id", "ticks").selectAll("g")
         .data(chord.groups)
         .enter().append("g").selectAll("g").data(groupTicks)
@@ -173,8 +217,9 @@ function updateChordChart(season) {
         });
 
 //The chord curves that connects two characters
-    var chords = svg.append("g").attr("class", "chord");
-    chords.selectAll("defs").data(chord.chords).enter().append("defs").append("linearGradient")
+    defs.selectAll("linearGradient").remove();
+    defs.selectAll("linearGradient").data(chord.chords).enter()
+        .append("linearGradient")
         .attr("id", function (d, i) {
             return "pattern" + i;
         })
@@ -237,40 +282,14 @@ function updateChordChart(season) {
         .style("stop-opacity", 1);
 
 
-    chords.selectAll("path")
-        .data(chord.chords)
-        .enter().append("path")
-        .attr("d", d3.svg.chord().radius(innerRadius))
-        .style("fill", function (d, i) {
-            return "url(#pattern" + i + ")";
-        })
-        .append("title")
+    chords.selectAll("path").data(chord.chords)
+        .transition().duration(500)
+        .attr("d", d3.svg.chord().radius(innerRadius));
+    chords.selectAll("path").selectAll("title").data(chord.chords)
         .text(function (d) {
             return characters[d.source.index] + "-->" + characters[d.target.index] + ":" + d.source.value + "\r\n" +
                 characters[d.target.index] + "-->" + characters[d.source.index] + ":" + d.target.value;
         });
-
-    function groupTicks(d) {
-        var k = (d.endAngle - d.startAngle) / d.value;
-        return d3.range(0, d.value, d.value > 10000 ? 1000 : 100).map(function (v, i) {
-            return {
-                "angle": v * k + d.startAngle,
-                //Only multiples of 5k
-                "label": i % 5 ? null : (d.value > 10000 ? (v / 1000 + "k") : (v - v % 100))
-            };
-        });
-    }
-
-    function fade(opacity) {
-        return function (g, i) {
-            svg.selectAll(".chord path")
-                .filter(function (d) {
-                    return d.source.index != i && d.target.index != i;
-                })
-                .transition()
-                .style("opacity", opacity);
-        };
-    }
 }
 
 
