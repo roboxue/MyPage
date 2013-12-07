@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}
+    The interactions between major characters in Friends episodes
+{% endblock %}
+{% block head %}
+    {{ super() }}
+    <!-- Custom styles -->
+    <link href="{{ url_for('static', filename='css/friends/friends_chord.css') }}" rel="stylesheet">
+{% endblock %}
+{% block content %}
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="{{ url_for('getFriendsChordData') }}">Chord</a></li>
+    </ul>
+    <div class="panel panel-default">
+        <div class="row">
+            <div class="col-lg-2">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Seasons:</div>
+                    <ul class="list-group" id="season_selector">
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Dialogues:</div>
+                    <div class="panel-body">
+                        <div id="barchart"></div>
+                        <div id="difference"></div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div id="chord"></div>
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+{% block scripts %}
+<script>
+    $(function () {
+        $("#li_gallery").addClass("active");
+    });
+    {% autoescape false%}
+    var acts ={{ acts }};
+    {% endautoescape %}
+</script>
+<script src="{{ url_for('static', filename='vendor/d3/queue.v1.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/friends/friends_chord.js') }}"></script>
+{% endblock %}
