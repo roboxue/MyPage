@@ -3,10 +3,9 @@ var charactersColor = ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#
 var seasonsAvailable = 8;
 
 
-var chordWidth = 700, chordHeight = 600, innerRadius = Math.min(chordWidth, chordHeight) * 0.35,
+var chordWidth = 500, chordHeight = 400, innerRadius = Math.min(chordWidth, chordHeight) * 0.35,
     outerRadius = innerRadius * 1.1;
-var barchartPaddingLeft = 5, barchartWidth = 125, barchartRowHeight = 25, barchartRowPadding = 5;
-var heatmapUnit = 18, heatmapPadding = 2;
+var heatmapUnit = 21, heatmapPadding = 3, heatmapPaddingLeft = 40;
 
 //Chord chart prepare
 var fill = d3.scale.ordinal()
@@ -51,25 +50,20 @@ chords.selectAll("path").data(d3.range(characters.length * (characters.length - 
 
 var defs = chords.selectAll("defs").data(d3.range(characters.length * (characters.length - 1) / 2)).enter().append("defs");
 
-//Barchart prepare
-var barchart = d3.select("#barchart").append("svg")
-    .attr("height", (barchartRowHeight + barchartRowPadding) * characters.length)
-    .attr("width", barchartPaddingLeft + barchartWidth);
-
-barchart.selectAll("rect").data(characters).enter()
-    .append("rect");
-barchart.selectAll("text").data(characters).enter()
-    .append("text");
-
 //Heatmap prepare
 var heatmap = d3.select("#heatmap").append("svg")
     .attr({"height": (characters.length + 1) * heatmapUnit + characters.length * heatmapPadding,
-        "width": (characters.length + 1) * heatmapUnit + characters.length * heatmapPadding});
+        "width": (characters.length + 1) * heatmapUnit + characters.length * heatmapPadding + heatmapPaddingLeft});
+var quantize = d3.scale.quantize()
+    .domain([15, 25])
+    .range(d3.range(5).map(function (i) {
+        return "q" + i + "-5";
+    }));
 
 heatmap.append("g").selectAll("text").data(d3.range(characters.length)).enter()
     .append("text")
     .attr("x", function (d) {
-        return (d + 1) * (heatmapUnit + heatmapPadding);
+        return (d + 1) * (heatmapUnit + heatmapPadding) + heatmapPaddingLeft;
     })
     .attr("y", heatmapUnit / 2)
     .attr("dy", "0.5em")
@@ -85,14 +79,14 @@ heatmap.append("g").selectAll("text").data(d3.range(characters.length)).enter()
     .attr("x", 0)
     .attr("dy", "0.5em")
     .text(function (d) {
-        return characters[d].substring(0, 2);
+        return characters[d];
     });
 
 heatmap.selectAll("g.heatmaptile").data(d3.range(characters.length)).enter()
     .append("g")
     .attr("class", "heatmaptile")
     .attr("transform", function (d) {
-        return "translate(" + (heatmapUnit + heatmapPadding) + "," + (heatmapUnit + heatmapPadding) * d + ")";
+        return "translate(" + (heatmapUnit + heatmapPadding + heatmapPaddingLeft) + "," + (heatmapUnit + heatmapPadding) * d + ")";
     })
     .selectAll("rect").data(d3.range(characters.length)).enter()
     .append("rect")
@@ -102,6 +96,55 @@ heatmap.selectAll("g.heatmaptile").data(d3.range(characters.length)).enter()
     .attr({"width": heatmapUnit, "height": heatmapUnit})
     .attr("fill", "none")
     .append("title");
+
+var multipleHeatmapUnit = 12, multipleHeatmapPadding = 3, multipleHeatmapPaddingBetween = 20, multipleHeatmapPaddingLeft = 10;
+var multipleHeatmapWidth = characters.length * multipleHeatmapUnit + (characters.length - 1) * multipleHeatmapPadding;
+var multipleHeatmap = d3.select("#multipleheatmap").append("svg")
+    .attr({"height": 5 + multipleHeatmapWidth * 2 + multipleHeatmapPaddingBetween * (2 - 1) + multipleHeatmapUnit + multipleHeatmapPadding,
+        "width": multipleHeatmapPaddingLeft + multipleHeatmapWidth * 4 + multipleHeatmapPaddingBetween * (4 - 1) + multipleHeatmapUnit + multipleHeatmapPadding})
+    .selectAll("g.row").data([0, 1]).enter()
+    .append("g").attr("class", "row").attr("transform",function (d) {
+        return "translate(" + (multipleHeatmapPaddingLeft + multipleHeatmapUnit + multipleHeatmapPadding) +
+            "," + (d * (multipleHeatmapWidth + multipleHeatmapPaddingBetween) + multipleHeatmapUnit + multipleHeatmapPadding) + ")"
+    }).selectAll("g.col").data(function (d) {
+        return d3.range(d * 4 + 1, d * 4 + 5)
+    }).enter()
+    .append("g").attr("class", "col").attr("id",function (d) {
+        return "heatmap_" + d;
+    }).attr("transform", function (d, i) {
+        return "translate(" + (i * (multipleHeatmapWidth + multipleHeatmapPaddingBetween)) + ",0)"
+    });
+multipleHeatmap.append("text").attr({"x": multipleHeatmapWidth / 2, "y": -multipleHeatmapPadding})
+    .style("text-anchor", "middle").text(function (d) {
+        return "Season " + d;
+    });
+multipleHeatmap.selectAll("g.heatmaptile").data(function (d) {
+    return getMatrix(d);
+}).enter()
+    .append("g")
+    .attr("class", "heatmaptile")
+    .attr("transform", function (d, i) {
+        return "translate(0," + (multipleHeatmapUnit + multipleHeatmapPadding) * i + ")";
+    })
+    .selectAll("rect").data(function (d, c) {
+        var sum = d3.sum(d);
+        for (var i = 0; i < d.length; i++) {
+            d[i] = {"value": d[i] * 100 / sum, "index": c%characters.length};
+        }
+        return d;
+    }).enter().append("rect")
+    .attr("transform", function (d, i) {
+        return "translate(" + i * (multipleHeatmapUnit + multipleHeatmapPadding) + ",0)";
+    })
+    .attr({"width": multipleHeatmapUnit, "height": multipleHeatmapUnit})
+    .attr("fill", "none")
+    .attr("class", function (d) {
+        return d.value == 0 ? "" : quantize(d.value);
+    })
+    .append("title")
+    .text(function (d, i) {
+        return characters[d.index] + "-->" + characters[i] + ":" + Math.round(d.value) + "%";
+    });
 
 
 function groupTicks(d) {
@@ -127,44 +170,6 @@ function fade(opacity) {
     };
 }
 
-function updateBarChart(season) {
-    var talkativeStat = [0, 0, 0, 0, 0, 0];
-    for (var i = 0; i < acts.length; i++) {
-        if (season == 0 || acts[i].season == season) {
-            var charactersInAct = acts[i].actualCharacters;
-            if (charactersInAct.length > 0)
-                for (var j = 0; j < charactersInAct.length; j++)
-                    talkativeStat[getCharacterId(charactersInAct[j].name)] += charactersInAct[j].value;
-        }
-    }
-    var talk_record = d3.max(talkativeStat);
-    var most_talkative_character = characters[talkativeStat.indexOf(talk_record)];
-    barchart.selectAll("rect").data(talkativeStat).attr({"height": barchartRowHeight, "x": barchartPaddingLeft})
-        .attr("width", function (d) {
-            return barchartWidth * d / talk_record;
-        })
-        .attr("y", function (d, i) {
-            return i * (barchartRowHeight + barchartRowPadding);
-        })
-        .style("fill", function (d, i) {
-            return charactersColor[i];
-        });
-
-    barchart.selectAll("text").data(talkativeStat).attr("dy", "0.5em")
-        .attr("transform", function (d, i) {
-            return "translate(" + (barchartPaddingLeft + 5) + "," + (barchartRowHeight / 2 + i * (barchartRowHeight + barchartRowPadding)) + ")";
-        })
-        .style("fill", "#ffffff")
-        .text(function (d, i) {
-            return characters[i] + ": " + d;
-        });
-
-    var talkative_stat = d3.select("#talkative_stat");
-    talkative_stat.selectAll("span").remove();
-    talkative_stat.append("span").text("The most talkative character is ");
-    talkative_stat.append("span").text(most_talkative_character).attr("class", most_talkative_character);
-}
-
 function updateChordChart(season) {
     var chord = d3.layout.chord()
         .padding(.05)
@@ -173,7 +178,7 @@ function updateChordChart(season) {
     names.data(chord.groups)
         .transition().duration(500)
         .attr("transform", function (d) {
-            return "translate(" + (outerRadius + 70) * Math.sin((d.startAngle + d.endAngle) / 2) + "," + (-70 - outerRadius) * Math.cos((d.startAngle + d.endAngle) / 2) + ")";
+            return "translate(" + (outerRadius + 60) * Math.sin((d.startAngle + d.endAngle) / 2) + "," + (-60 - outerRadius) * Math.cos((d.startAngle + d.endAngle) / 2) + ")";
         });
 
 //All the curves representing each characters
@@ -291,30 +296,28 @@ function updateChordChart(season) {
 
 function updateHeatmap(season) {
     var matrix = getMatrix(season);
-    var quantize = d3.scale.quantize()
-        .domain([15, 25])
-        .range(d3.range(5).map(function (i) {
-            return "q" + i + "-5";
-        }));
-    var tiles = heatmap.selectAll("g.heatmaptile").data(matrix)
-        .selectAll("rect").data(function (d) {
+    var tiles = heatmap.selectAll("g.heatmaptile").data(getMatrix(season))
+        .selectAll("rect").data(function (d, c) {
             var sum = d3.sum(d);
             for (var i = 0; i < d.length; i++) {
-                d[i] = d[i] * 100 / sum;
+                d[i] = {"value": d[i] * 100 / sum, "index": c};
             }
             return d;
         })
         .attr("class", function (d) {
-            return d == 0 ? "" : quantize(d);
+            return d.value == 0 ? "" : quantize(d.value);
         });
     tiles.selectAll("title").remove();
-    tiles.append("title").text(function (d) {
-        return Math.round(d) + "%";
+    tiles.append("title").text(function (d,i) {
+        return characters[d.index] + "-->" + characters[i] + ":" + Math.round(d.value) + "%";
     });
 
     var audience_stat = d3.select("#audience_stat");
-    audience_stat.selectAll("span").remove();
+    audience_stat.selectAll("p").remove();
+    audience_stat.append("p").text(season==0?"All seasons":("Season "+season));
+
     for (var i = 0; i < characters.length; i++) {
+        console.log(d3.max(matrix[i]));
         var best_audience = characters[matrix[i].indexOf(d3.max(matrix[i]))];
         audience_stat
             .append("p")
@@ -327,7 +330,6 @@ function updateHeatmap(season) {
 
 function setSeason(season) {
     console.log(season);
-    updateBarChart(season);
     updateChordChart(season);
     updateHeatmap(season);
     d3.select("#currentSeason").text(season == 0 ? "All Seasons" : "Season " + season).append("span").attr("class", "caret");

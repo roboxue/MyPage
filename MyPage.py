@@ -23,16 +23,18 @@ def home():
 
 @app.route('/friends')
 @app.route('/friends/<graph>')
-def friends(graph="chord"):
+def friends(graph="landing"):
     mongo = open(os.path.split(os.path.abspath(sys.argv[0]))[0] + "/mongo", 'r').read()
     collection = MongoClient(mongo).app17383606
     acts = list(collection.friend.find({},
         {"season": 1, "episode": 1, "title": 1, "act": 1, "scene": 1, "actualCharacters": 1, "_id": 0}).sort(
         [("season", ASCENDING), ("episode", ASCENDING)]))
-    if graph == "steam":
+    if graph == "character-activity-analysis":
         return render_template('friends/friends_steam.html', acts=json.dumps(acts))
-    else:
+    elif graph == "character-interaction-analysis":
         return render_template('friends/friends_chord.html', acts=json.dumps(acts))
+    else:
+        return render_template('friends/friends_landing.html', acts=json.dumps(acts))
 
 
 @app.route('/travel/')
