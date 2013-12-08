@@ -2,57 +2,13 @@ var characters = ["Monica", "Ross", "Rachel", "Joey", "Chandler", "Phoebe"];
 var charactersColor = ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#8c564b"];
 var seasonsAvailable = 8;
 
-d3.select("#season_selector").selectAll("li").data(d3.range(seasonsAvailable + 1))
-    .enter()
-    .append("li").attr("role", "presentation")
-    .append("a").attr("role", "menuitem").attr("href", "#")
-    .style("cursor", "pointer")
-    .text(function (d) {
-        return d == 0 ? "All Seasons" : "Season " + d;
-    }).on("click", function (d) {
-        updateBarChart(d);
-        updateChordChart(d);
-        updateHeatmap(d);
-        d3.select("#currentSeason").text(d == 0 ? "All Seasons" : "Season " + d).append("span").attr("class", "caret");
-    });
-
-function getMatrix(season) {
-    var matrix = [
-        [0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0]
-    ];
-    for (var i = 0; i < acts.length; i++) {
-        if (season == 0 || acts[i].season == season) {
-            var charactersInAct = acts[i].actualCharacters;
-            if (charactersInAct.length > 1) {
-                for (var j = 0; j < charactersInAct.length; j++)
-                    for (var k = 0; k < charactersInAct.length; k++)
-                        if (k != j)
-                            matrix[getCharacterId(charactersInAct[j].name)][getCharacterId(charactersInAct[k].name)] += charactersInAct[j].value;
-            }
-        }
-    }
-    return matrix
-}
-
-
-function getCharacterId(name) {
-    for (var i = 0; i < characters.length; i++) {
-        if (characters[i] == name)
-            return i;
-    }
-    return null;
-}
 
 var chordWidth = 700, chordHeight = 600, innerRadius = Math.min(chordWidth, chordHeight) * 0.35,
     outerRadius = innerRadius * 1.1;
 var barchartPaddingLeft = 5, barchartWidth = 125, barchartRowHeight = 25, barchartRowPadding = 5;
 var heatmapUnit = 18, heatmapPadding = 2;
 
+//Chord chart prepare
 var fill = d3.scale.ordinal()
     .domain(d3.range(6))
     .range(charactersColor);
@@ -171,10 +127,6 @@ function fade(opacity) {
     };
 }
 
-updateChordChart(0);
-updateBarChart(0);
-updateHeatmap(0);
-
 function updateBarChart(season) {
     var talkativeStat = [0, 0, 0, 0, 0, 0];
     for (var i = 0; i < acts.length; i++) {
@@ -212,7 +164,6 @@ function updateBarChart(season) {
     talkative_stat.append("span").text("The most talkative character is ");
     talkative_stat.append("span").text(most_talkative_character).attr("class", most_talkative_character);
 }
-
 
 function updateChordChart(season) {
     var chord = d3.layout.chord()
@@ -338,7 +289,6 @@ function updateChordChart(season) {
         });
 }
 
-
 function updateHeatmap(season) {
     var matrix = getMatrix(season);
     var quantize = d3.scale.quantize()
@@ -374,3 +324,85 @@ function updateHeatmap(season) {
     }
 
 }
+
+function setSeason(season) {
+    console.log(season);
+    updateBarChart(season);
+    updateChordChart(season);
+    updateHeatmap(season);
+    d3.select("#currentSeason").text(season == 0 ? "All Seasons" : "Season " + season).append("span").attr("class", "caret");
+}
+
+function getMatrix(season) {
+    var matrix = [
+        [0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0]
+    ];
+    for (var i = 0; i < acts.length; i++) {
+        if (season == 0 || acts[i].season == season) {
+            var charactersInAct = acts[i].actualCharacters;
+            if (charactersInAct.length > 1) {
+                for (var j = 0; j < charactersInAct.length; j++)
+                    for (var k = 0; k < charactersInAct.length; k++)
+                        if (k != j)
+                            matrix[getCharacterId(charactersInAct[j].name)][getCharacterId(charactersInAct[k].name)] += charactersInAct[j].value;
+            }
+        }
+    }
+    return matrix
+}
+
+function getCharacterId(name) {
+    for (var i = 0; i < characters.length; i++) {
+        if (characters[i] == name)
+            return i;
+    }
+    return null;
+}
+
+//WebUI
+d3.select("#autoplay").on("click", function () {
+    autoplay(1);
+    $("#autoplay span").toggleClass("glyphicon-play glyphicon-random");
+    d3.select("#autoplay").on("click", void(0));
+});
+function autoplay(season) {
+    if (season >= 0 && season <= seasonsAvailable)
+        setSeason(season);
+    if (season == 0) {
+        $("#autoplay span").toggleClass("glyphicon-play glyphicon-random");
+        d3.select("#autoplay").on("click", function () {
+            autoplay(1);
+            $("#autoplay span").toggleClass("glyphicon-play glyphicon-random");
+            d3.select("#autoplay").on("click", void(0));
+        });
+        return;
+    }
+    if (season + 1 <= seasonsAvailable)
+        setTimeout(function () {
+            autoplay(season + 1)
+        }, 3000);
+    else {
+        setTimeout(function () {
+            autoplay(0)
+        }, 3000);
+    }
+
+}
+
+d3.select("#season_selector").selectAll("li").data(d3.range(seasonsAvailable + 1))
+    .enter()
+    .append("li").attr("role", "presentation")
+    .append("a").attr("role", "menuitem").attr("href", "#")
+    .style("cursor", "pointer")
+    .text(function (d) {
+        return d == 0 ? "All Seasons" : "Season " + d;
+    }).on("click", function (d) {
+        setSeason(d);
+    });
+//Start Visualization
+setSeason(0);
