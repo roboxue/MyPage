@@ -12,6 +12,7 @@ d3.select("#season_selector").selectAll("li").data(d3.range(seasonsAvailable + 1
     }).on("click", function (d) {
         updateBarChart(d);
         updateChordChart(d);
+        updateHeatmap(d);
         d3.select("#currentSeason").text(d == 0 ? "All Seasons" : "Season " + d).append("span").attr("class", "caret");
     });
 
@@ -50,6 +51,7 @@ function getCharacterId(name) {
 var chordWidth = 700, chordHeight = 600, innerRadius = Math.min(chordWidth, chordHeight) * 0.35,
     outerRadius = innerRadius * 1.1;
 var barchartPaddingLeft = 5, barchartWidth = 125, barchartRowHeight = 25, barchartRowPadding = 5;
+var heatmapUnit = 18, heatmapPadding = 2;
 
 var fill = d3.scale.ordinal()
     .domain(d3.range(6))
@@ -93,7 +95,7 @@ chords.selectAll("path").data(d3.range(characters.length * (characters.length - 
 
 var defs = chords.selectAll("defs").data(d3.range(characters.length * (characters.length - 1) / 2)).enter().append("defs");
 
-
+//Barchart prepare
 var barchart = d3.select("#barchart").append("svg")
     .attr("height", (barchartRowHeight + barchartRowPadding) * characters.length)
     .attr("width", barchartPaddingLeft + barchartWidth);
@@ -102,6 +104,49 @@ barchart.selectAll("rect").data(characters).enter()
     .append("rect");
 barchart.selectAll("text").data(characters).enter()
     .append("text");
+
+//Heatmap prepare
+var heatmap = d3.select("#heatmap").append("svg")
+    .attr({"height": (characters.length + 1) * heatmapUnit + characters.length * heatmapPadding,
+        "width": (characters.length + 1) * heatmapUnit + characters.length * heatmapPadding});
+
+heatmap.append("g").selectAll("text").data(d3.range(characters.length)).enter()
+    .append("text")
+    .attr("x", function (d) {
+        return (d + 1) * (heatmapUnit + heatmapPadding);
+    })
+    .attr("y", heatmapUnit / 2)
+    .attr("dy", "0.5em")
+    .text(function (d) {
+        return characters[d].substring(0, 2);
+    });
+
+heatmap.append("g").selectAll("text").data(d3.range(characters.length)).enter()
+    .append("text")
+    .attr("y", function (d) {
+        return (d + 1) * (heatmapUnit + heatmapPadding) + heatmapUnit / 2;
+    })
+    .attr("x", 0)
+    .attr("dy", "0.5em")
+    .text(function (d) {
+        return characters[d].substring(0, 2);
+    });
+
+heatmap.selectAll("g.heatmaptile").data(d3.range(characters.length)).enter()
+    .append("g")
+    .attr("class", "heatmaptile")
+    .attr("transform", function (d) {
+        return "translate(" + (heatmapUnit + heatmapPadding) + "," + (heatmapUnit + heatmapPadding) * d + ")";
+    })
+    .selectAll("rect").data(d3.range(characters.length)).enter()
+    .append("rect")
+    .attr("transform", function (d) {
+        return "translate(" + d * (heatmapUnit + heatmapPadding) + "," + heatmapUnit + ")";
+    })
+    .attr({"width": heatmapUnit, "height": heatmapUnit})
+    .attr("fill", "none")
+    .append("title");
+
 
 function groupTicks(d) {
     //%5 ticks
@@ -128,6 +173,7 @@ function fade(opacity) {
 
 updateChordChart(0);
 updateBarChart(0);
+updateHeatmap(0);
 
 function updateBarChart(season) {
     var talkativeStat = [0, 0, 0, 0, 0, 0];
@@ -293,3 +339,38 @@ function updateChordChart(season) {
 }
 
 
+function updateHeatmap(season) {
+    var matrix = getMatrix(season);
+    var quantize = d3.scale.quantize()
+        .domain([15, 25])
+        .range(d3.range(5).map(function (i) {
+            return "q" + i + "-5";
+        }));
+    var tiles = heatmap.selectAll("g.heatmaptile").data(matrix)
+        .selectAll("rect").data(function (d) {
+            var sum = d3.sum(d);
+            for (var i = 0; i < d.length; i++) {
+                d[i] = d[i] * 100 / sum;
+            }
+            return d;
+        })
+        .attr("class", function (d) {
+            return d == 0 ? "" : quantize(d);
+        });
+    tiles.selectAll("title").remove();
+    tiles.append("title").text(function (d) {
+        return Math.round(d) + "%";
+    });
+
+    var audience_stat = d3.select("#audience_stat");
+    audience_stat.selectAll("span").remove();
+    for (var i = 0; i < characters.length; i++) {
+        var best_audience = characters[matrix[i].indexOf(d3.max(matrix[i]))];
+        audience_stat
+            .append("p")
+            .append("span").text(characters[i] + "<--")
+            .append("span").text(best_audience).attr("class", best_audience);
+
+    }
+
+}
