@@ -13,8 +13,13 @@
 
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li><a href="{{ url_for('friends',graph="character-activity-analysis") }}">Characters' Activities</a></li>
-                <li><a href="{{ url_for('friends',graph="character-interaction-analysis") }}">Characters' Interactions</a></li>
+                <li><a href="{{ url_for('friends',graph="character-activity-analysis") }}">Characters' Activities</a>
+                </li>
+                <li><a href="{{ url_for('friends',graph="character-interaction-analysis") }}">Characters'
+                    Interactions</a></li>
+                <li><a href="{{ url_for('friends',graph="character-sentiment-analysis") }}">Characters' Sentiment
+                    Storyline </a></li>
+
             </ul>
         </div>
     </nav>
@@ -23,9 +28,9 @@
             <div class="col-lg-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                    <a href="{{ url_for('friends',graph="character-activity-analysis") }}">
-                        Most Talkative!&nbsp;<span class="glyphicon glyphicon-share"></span>
-                    </a>
+                        <a href="{{ url_for('friends',graph="character-activity-analysis") }}">
+                            Most Talkative!&nbsp;<span class="glyphicon glyphicon-share"></span>
+                        </a>
                     </div>
                     <div class="panel-body">
                         <p id="talkative_stat">
@@ -33,10 +38,14 @@
 
                         <div id="barchart"></div>
                     </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="panel panel-default">
                     <div class="panel-heading">
-                    <a href="{{ url_for('friends',graph="character-interaction-analysis") }}">
-                        Best Audience!&nbsp;<span class="glyphicon glyphicon-share"></span>
-                    </a>
+                        <a href="{{ url_for('friends',graph="character-interaction-analysis") }}">
+                            Best Audience!&nbsp;<span class="glyphicon glyphicon-share"></span>
+                        </a>
                     </div>
                     <div class="panel-body">
                         <p>
@@ -49,9 +58,23 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-8">
-                More to follow...
+            <div class="col-lg-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <a href="{{ url_for('friends',graph="character-sentiment-analysis") }}">
+                            Sentiment storyline!&nbsp;<span class="glyphicon glyphicon-share"></span>
+                        </a>
+                    </div>
+                    <div class="panel-body">
+                        <p>
+                            Sentiment Analysis
+                        </p>
 
+                        <div id="sentiment"></div>
+                        <p id="sentiment_stat">
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

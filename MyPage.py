@@ -27,14 +27,24 @@ def friends(graph="landing"):
     mongo = open(os.path.split(os.path.abspath(sys.argv[0]))[0] + "/mongo", 'r').read()
     collection = MongoClient(mongo).app17383606
     acts = list(collection.friend.find({},
-        {"season": 1, "episode": 1, "title": 1, "act": 1, "scene": 1, "actualCharacters": 1, "_id": 0}).sort(
-        [("season", ASCENDING), ("episode", ASCENDING)]))
+        {"season": 1, "episode": 1, "title": 1, "act": 1, "scene": 1, "actualCharacters": 1,"sentiments":1, "_id": 0}).sort(
+        [("season", ASCENDING), ("episode", ASCENDING), ("act", ASCENDING)]))
     if graph == "character-activity-analysis":
         return render_template('friends/friends_steam.html', acts=json.dumps(acts))
     elif graph == "character-interaction-analysis":
         return render_template('friends/friends_chord.html', acts=json.dumps(acts))
+    elif graph == "character-sentiment-analysis":
+        return render_template('friends/friends_sentiment.html', acts=json.dumps(acts))
     else:
         return render_template('friends/friends_landing.html', acts=json.dumps(acts))
+
+@app.route('/data/friends/<season>/<episode>/<act>')
+def friendsScript(season,episode,act):
+    mongo = open(os.path.split(os.path.abspath(sys.argv[0]))[0] + "/mongo", 'r').read()
+    collection = MongoClient(mongo).app17383606
+    script =collection.friend.find_one({"season":int(season),"episode":int(episode),"act":int(act)},
+        {"season": 1, "episode": 1, "title": 1, "act": 1, "scene": 1, "dialogues": 1, "_id": 0})["dialogues"]
+    return json.dumps(script)
 
 
 @app.route('/travel/')
