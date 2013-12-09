@@ -106,9 +106,15 @@ function setSeason(season) {
 
 
 function showOneCharacter(characterId) {
-    layers0 = stack((characterId == n ? d3.range(n) : [characterId]).map(function (d) {
-        return activityStatByCharacter(d);
-    }));
+    if (characterId == 6)
+        layers0 = stack((characterId == n ? d3.range(n) : [characterId]).map(function (d) {
+            return activityStatByCharacter(d);
+        }));
+    else
+        layers0 = d3.layout.stack()((characterId == n ? d3.range(n) : [characterId]).map(function (d) {
+            return activityStatByCharacter(d);
+        }));
+
     var y = d3.scale.linear()
         .domain([0, d3.max(layers0, function (layer) {
             return d3.max(layer, function (d) {
@@ -186,7 +192,7 @@ function updateBarChart(season) {
 
     var talkative_stat = d3.select("#talkative_stat");
     talkative_stat.selectAll("span").remove();
-    talkative_stat.append("span").text("The most talkative character in "+(season==0?"all seasons":"Season "+ season) +" is ");
+    talkative_stat.append("span").text("The most talkative character in " + (season == 0 ? "all seasons" : "Season " + season) + " is ");
     talkative_stat.append("span").text(most_talkative_character).attr("class", most_talkative_character);
 }
 //Web UI

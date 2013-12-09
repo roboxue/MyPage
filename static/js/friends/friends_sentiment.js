@@ -56,9 +56,11 @@ var x = d3.scale.linear()
 
 var y = d3.scale.linear()
     .range([sentiheight, 0]);
-var sentitext = d3.scale.ordinal()
-    .domain([1.5, 2.5])
-    .range(["Negative", "Neutral", "Positive"]);
+var sentitext = function(d){
+    if(Math.round(d)<2) return "Nagetive";
+    if(Math.round(d)==2) return "Neutral";
+    if(Math.round(d)>2) return "Positive";
+};
 
 var xAxis = d3.svg.axis()
     .scale(x)
@@ -67,7 +69,7 @@ var xAxis = d3.svg.axis()
 var yAxis = d3.svg.axis()
     .scale(y)
     .orient("left")
-    .tickValues([1.5, 2, 2.5])
+    .tickValues([1.49, 2, 2.5])
     .tickFormat(sentitext);
 
 var line = d3.svg.line()
