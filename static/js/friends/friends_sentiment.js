@@ -2,14 +2,6 @@ var characters = ["Monica", "Ross", "Rachel", "Joey", "Chandler", "Phoebe"];
 var charactersColor = ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#8c564b"];
 var seasonsAvailable = 8;
 
-function getCharacterId(name) {
-    for (var i = 0; i < characters.length; i++) {
-        if (characters[i] == name)
-            return i;
-    }
-    return null;
-}
-
 function getSentimentText(sentimentValue) {
     switch (Math.round(sentimentValue)) {
         case 0:
@@ -52,6 +44,68 @@ var nested_acts = d3.nest()
     })
     .entries(acts);
 
+//Storyline prepare
+var storyline = d3.select("#storyline");
+
+var sentimargin = {top: 10, right: 20, bottom: 20, left: 70},
+    sentiwidth = 1080 - sentimargin.left - sentimargin.right,
+    sentiheight = 100 - sentimargin.top - sentimargin.bottom;
+
+var x = d3.scale.linear()
+    .range([0, sentiwidth]);
+
+var y = d3.scale.linear()
+    .range([sentiheight, 0]);
+var sentitext = d3.scale.ordinal()
+    .domain([1.5, 2.5])
+    .range(["Negative", "Neutral", "Positive"]);
+
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom");
+
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("left")
+    .tickValues([1.5, 2, 2.5])
+    .tickFormat(sentitext);
+
+var line = d3.svg.line()
+    .x(function (d) {
+        return x(d.index);
+    })
+    .y(function (d) {
+        return y(d.sentiment);
+    });
+
+var sentiment_trend = d3.select("#season_sentiment_trend").append("svg")
+    .attr("width", sentiwidth + sentimargin.left + sentimargin.right)
+    .attr("height", sentiheight + sentimargin.top + sentimargin.bottom)
+    .append("g")
+    .attr("transform", "translate(" + sentimargin.left + "," + sentimargin.top + ")");
+x.domain([0, 25]);
+y.domain([1.5, 2.5]);
+
+sentiment_trend.append("g")
+    .attr("class", "x axis")
+    .attr("transform", "translate(0," + sentiheight + ")")
+    .call(xAxis)
+    .append("text")
+    .attr("x", sentiwidth)
+    .attr("y", -6)
+    .attr("dy", ".71em")
+    .style("text-anchor", "end")
+    .text("Episode");
+
+sentiment_trend.append("g")
+    .attr("class", "y axis")
+    .call(yAxis)
+    .append("text")
+    .attr("transform", "rotate(-90)")
+    .attr("y", 6)
+    .attr("dy", ".71em")
+    .style("text-anchor", "end")
+    .text("Sentiment");
 
 //Breadcrumb prepare
 var breadcrumb = d3.select("#selector");
@@ -80,6 +134,7 @@ function selectSeason(season) {
         });
     selectEpisode(season, 1);
     updateSentimentLine(season);
+    updateSentimentLine(season);
 }
 
 function selectEpisode(season, episode) {
@@ -92,25 +147,6 @@ function selectEpisode(season, episode) {
     current_episode.text("Episode " + d.key + " - " + d.values[0].title).append("span").attr("class", "caret");
     updateStoryline(d);
 }
-
-//Storyline prepare
-var storyline = d3.select("#storyline");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -141,7 +177,16 @@ function updateStoryline(episode) {
         }).attr("class", function (d) {
             return "label " + d.name;
         })
-        .append("span").attr("class", "badge").style("background-color",function (d) {
+        .on("mouseover", function (d) {
+            sentiment_trend.selectAll("g.series path").style("stroke", function (v, i) {
+                return d.name == characters[i] ? charactersColor[i] : "none";
+            });
+        })
+        .on("mouseout",function () {
+            sentiment_trend.selectAll("g.series path").style("stroke", function (v, i) {
+                return charactersColor[i];
+            });
+        }).append("span").attr("class", "badge").style("background-color",function (d) {
             return getSentimentColor(d.sentiment);
         }).text(function (d) {
             return getSentimentText(d.sentiment);
@@ -151,8 +196,6 @@ function updateStoryline(episode) {
 }
 
 function showscript(act) {
-    console.log(act);
-    console.log(act.scene);
     d3.json("/data/friends/" + act.season + "/" + act.episode + "/" + act.act + "", function (data) {
         d3.select("#scriptdisplay").selectAll("div").remove();
         var scriptdisplay = d3.select("#scriptdisplay").append("div");
@@ -161,11 +204,24 @@ function showscript(act) {
             scriptdisplay.append("h2").text("Scene description: " + act.scene);
         var dialogues = scriptdisplay.selectAll("p").data(data).enter()
             .append("p");
-        dialogues.append("span").attr("class",function (d) {
+        dialogues.append("span").attr("class", function (d) {
             return d.speaker;
-        }).text(function (d) {
+        })
+            .text(function (d) {
                 return d.speaker + ":";
             })
+            .on("mouseover", function (d) {
+                sentiment_trend.selectAll("g.series path").style("stroke", function (v, i) {
+                    return d.speaker == characters[i] ? charactersColor[i] : "none";
+                });
+            })
+            .on("mouseout",function (d) {
+                sentiment_trend.selectAll("g.series path").style("stroke", function (v, i) {
+                    return charactersColor[i];
+                });
+            }).append("span").attr("class", "badge").style("background-color", function (d) {
+                return getSentimentColor(d.sentiment);
+            });
         dialogues.append("span").text(function (d) {
             return d.content;
         })
@@ -173,5 +229,40 @@ function showscript(act) {
 }
 
 function updateSentimentLine(season) {
+    var sentiment = [];
+    for (var i = 0; i < characters.length; i++) {
+        sentiment[i] = [];
+        var data = nested_acts[season - 1].values;
+        for (var j = 0; j < data.length; j++) {
+            sentiment[i][j] = {};
+            var d = data[j];
+            sentiment[i][j].sentiment = d3.sum(d.values, function (d) {
+                if (d.actualCharacters.length > 0)
+                    return parseInt(d3.sum(d.sentiments, function (d) {
+                        return d.name == characters[i] ? d.value : 0;
+                    }));
+                else return 0;
+            }) / d3.sum(d.values, function (d) {
+                if (d.actualCharacters.length > 0)
+                    return parseInt(d3.sum(d.actualCharacters, function (d) {
+                        return d.name == characters[i] ? d.value : 0;
+                    }));
+                else return 0;
+            });
+            sentiment[i][j].index = parseInt(d.key);
+
+        }
+    }
+    sentiment_trend.selectAll("g.series").remove();
+    sentiment_trend.selectAll("g.series").data(sentiment).enter().append("g").attr("class", "series")
+        .append("path")
+        .attr("class", "line")
+        .style("stroke", function (d, i) {
+            return charactersColor[i];
+        })
+        .attr("d", function (d) {
+            return line(d);
+        });
+
 }
 selectSeason(1);

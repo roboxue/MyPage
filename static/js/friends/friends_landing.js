@@ -65,6 +65,45 @@ heatmap.selectAll("g.heatmaptile").data(d3.range(characters.length)).enter()
     .attr("fill", "none")
     .append("title");
 
+var nested_acts = d3.nest()
+    .key(function (d) {
+        return d.season;
+    }).sortKeys(d3.ascending)
+    .key(function (d) {
+        return d.episode;
+    }).sortKeys(function (a, b) {
+        return a - b;
+    })
+    .sortValues(function (a, b) {
+        return a.act - b.act;
+    })
+    .entries(acts);
+
+//Sentiment prepare
+var sentimargin = {top: 10, right: 20, bottom: 20, left: 70},
+    sentiwidth = 320 - sentimargin.left - sentimargin.right,
+    sentiheight = 100 - sentimargin.top - sentimargin.bottom;
+
+var sentix = d3.scale.linear()
+    .range([0, sentiwidth]);
+
+var sentiy = d3.scale.linear()
+    .range([sentiheight, 0])
+    .domain([1.8, 2.2]);
+
+var sentitext = d3.scale.ordinal()
+    .domain([1.8, 2.2])
+    .range(["Negative", "Neutral", "Positive"]);
+
+var sentixAxis = d3.svg.axis()
+    .scale(sentix)
+    .orient("bottom");
+
+var sentiyAxis = d3.svg.axis()
+    .scale(sentiy)
+    .orient("left")
+    .tickValues([1.8, 2, 2.2])
+    .tickFormat(sentitext);
 
 function updateBarChart(season) {
     var talkativeStat = [0, 0, 0, 0, 0, 0];
@@ -123,13 +162,13 @@ function updateHeatmap(season) {
             return d.value == 0 ? "" : quantize(d.value);
         });
     tiles.selectAll("title").remove();
-    tiles.append("title").text(function (d,i) {
+    tiles.append("title").text(function (d, i) {
         return characters[d.index] + "-->" + characters[i] + ":" + Math.round(d.value) + "%";
     });
 
     var audience_stat = d3.select("#audience_stat");
     audience_stat.selectAll("p").remove();
-    audience_stat.append("p").text(season==0?"All seasons":("Season "+season));
+    audience_stat.append("p").text(season == 0 ? "All seasons" : ("Season " + season));
 
     for (var i = 0; i < characters.length; i++) {
         var best_audience = characters[matrix[i].indexOf(d3.max(matrix[i]))];
@@ -142,10 +181,82 @@ function updateHeatmap(season) {
 
 }
 
+function updateSentimentLine() {
+    var sentiment = [];
+    sentix.domain([1, seasonsAvailable]);
+    for (var i = 0; i < characters.length; i++) {
+        sentiment[i] = d3.nest()
+            .key(function (d) {
+                return parseInt(d.season);
+            }).sortKeys(d3.ascending)
+            .rollup(function (d) {
+                return d3.sum(d, function (d) {
+                    if (d.actualCharacters.length > 0)
+                        return parseInt(d3.sum(d.sentiments, function (d) {
+                            return d.name == characters[i] ? d.value : 0;
+                        }));
+                    else return 0;
+                }) / d3.sum(d, function (d) {
+                    if (d.actualCharacters.length > 0)
+                        return parseInt(d3.sum(d.actualCharacters, function (d) {
+                            return d.name == characters[i] ? d.value : 0;
+                        }));
+                    else return 0;
+                });
+            })
+            .entries(acts);
+    }
+    console.log(sentiment);
+    var sentiment_trend = d3.select("#sentiment").selectAll("svg").data(sentiment).enter()
+        .append("svg")
+        .attr("width", sentiwidth + sentimargin.left + sentimargin.right)
+        .attr("height", sentiheight + sentimargin.top + sentimargin.bottom)
+        .append("g")
+        .attr("transform", "translate(" + sentimargin.left + "," + sentimargin.top + ")");
+
+    sentiment_trend.append("g")
+        .attr("class", "x axis")
+        .attr("transform", "translate(0," + sentiheight + ")")
+        .call(sentixAxis)
+        .append("text")
+        .attr("x", sentiwidth)
+        .attr("y", -6)
+        .attr("dy", ".71em")
+        .style("text-anchor", "end")
+        .text(function(d,i){return characters[i];});
+
+    sentiment_trend.append("g")
+        .attr("class", "y axis")
+        .call(sentiyAxis)
+        .append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("y", 6)
+        .attr("dy", ".71em")
+        .style("text-anchor", "end");
+    var sentiline = d3.svg.line()
+        .x(function (d) {
+            return sentix(d.key);
+        })
+        .y(function (d) {
+            return sentiy(d.values);
+        });
+    sentiment_trend.append("g").attr("class", "series")
+        .append("path")
+        .attr("class", "line")
+        .style("stroke", function (d, i) {
+            return charactersColor[i];
+        })
+        .attr("d", function (d) {
+            return sentiline(d);
+        });
+
+}
+
 function setSeason(season) {
     console.log(season);
     updateBarChart(season);
     updateHeatmap(season);
+    updateSentimentLine();
     d3.select("#currentSeason").text(season == 0 ? "All Seasons" : "Season " + season).append("span").attr("class", "caret");
 }
 

@@ -27,3 +27,18 @@
 .q2-5{fill:#BDBDBD}
 .q3-5{fill:#F4A582}
 .q4-5{fill:#B2182B}
+.axis path,
+.axis line {
+  fill: none;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 3px;
+}
