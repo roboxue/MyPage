@@ -69,6 +69,10 @@ def work():
                                {"northwestern": northwestern, "fudan": fudan, "miscellaneous": miscellaneous}))
 
 
+@app.route('/msia')
+def msia():
+    return render_template('msia.html')
+
 if __name__ == "__main__":
     port = 8000
     app.debug = True
